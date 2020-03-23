@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DRRP-Launcher", "DRRP-Launcher.csproj", "{AD23DC28-54EC-4AEC-885A-5AAFE32486F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AD23DC28-54EC-4AEC-885A-5AAFE32486F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD23DC28-54EC-4AEC-885A-5AAFE32486F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD23DC28-54EC-4AEC-885A-5AAFE32486F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD23DC28-54EC-4AEC-885A-5AAFE32486F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2C05B976-27D0-49B2-BC6E-8282855D42D1}
+	EndGlobalSection
+EndGlobal
