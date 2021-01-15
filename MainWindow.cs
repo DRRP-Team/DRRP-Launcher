@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,13 +10,15 @@ namespace DRRP_Launcher {
     public partial class Window : Form {
         private string[] drrp_versions;
         private string[] gzdoom_versions;
+        private Config config;
 
         public Window() {
             InitializeComponent();
+            config = new Config();
         }
 
         private void Btn_DRRPUpdateVersions_Click(object sender, EventArgs e) {
-            //
+            config.save();
         }
 
         private void initFolders() {
@@ -32,8 +32,11 @@ namespace DRRP_Launcher {
             }
         }
 
+
+
         private void Window_Load(object sender, EventArgs e) {
             initFolders();
+            config.load();
         }
     }
 }
