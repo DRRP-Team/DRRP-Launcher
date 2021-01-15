@@ -39,6 +39,8 @@
             this.cmb_DRRPVer = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btn_openGZDoomFolder = new System.Windows.Forms.Button();
             this.cmb_GZDoomLang = new System.Windows.Forms.ComboBox();
             this.cmb_GZDoomVer = new System.Windows.Forms.ComboBox();
@@ -46,8 +48,6 @@
             this.btn_GZDoomUpdateVersions = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_run = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -129,6 +129,7 @@
             resources.ApplyResources(this.btn_DRRPUpdateVersions, "btn_DRRPUpdateVersions");
             this.btn_DRRPUpdateVersions.Name = "btn_DRRPUpdateVersions";
             this.btn_DRRPUpdateVersions.UseVisualStyleBackColor = true;
+            this.btn_DRRPUpdateVersions.Click += new System.EventHandler(this.Btn_DRRPUpdateVersions_Click);
             // 
             // cmb_DRRPVer
             // 
@@ -153,6 +154,16 @@
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            // 
+            // label3
+            // 
+            resources.ApplyResources(this.label3, "label3");
+            this.label3.Name = "label3";
+            // 
+            // textBox1
+            // 
+            resources.ApplyResources(this.textBox1, "textBox1");
+            this.textBox1.Name = "textBox1";
             // 
             // btn_openGZDoomFolder
             // 
@@ -195,16 +206,6 @@
             this.btn_run.Name = "btn_run";
             this.btn_run.UseVisualStyleBackColor = true;
             // 
-            // textBox1
-            // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            // 
             // Window
             // 
             resources.ApplyResources(this, "$this");
@@ -218,6 +219,7 @@
             this.Name = "Window";
             this.ShowIcon = false;
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Load += new System.EventHandler(this.Window_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
