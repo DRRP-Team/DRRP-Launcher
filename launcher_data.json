@@ -1,0 +1,16 @@
+﻿{
+  "version": 0,
+  "engines": [
+    {
+      "name": "GZDoom 3.5.1",
+      "url": "https://zdoom.org/files/gzdoom/bin/gzdoom-4-5-0-Windows-64bit.zip"
+    }
+  ],
+  "drrp_versions": [
+    {
+      "name": "DRRP v0.4.0",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.4.0/DRRPv0.4.0.pk3",
+      "filename": "DRRPv0.4.0.pk3"
+    }
+  ]
+}
