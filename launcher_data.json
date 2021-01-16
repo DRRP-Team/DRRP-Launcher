@@ -2,7 +2,7 @@
   "version": 0,
   "engines": [
     {
-      "name": "GZDoom 3.5.1",
+      "name": "GZDoom 4.5.0 (x64)",
       "url": "https://zdoom.org/files/gzdoom/bin/gzdoom-4-5-0-Windows-64bit.zip"
     }
   ],
