@@ -194,6 +194,7 @@
             resources.ApplyResources(this.btn_GZDoomUpdateVersions, "btn_GZDoomUpdateVersions");
             this.btn_GZDoomUpdateVersions.Name = "btn_GZDoomUpdateVersions";
             this.btn_GZDoomUpdateVersions.UseVisualStyleBackColor = true;
+            this.btn_GZDoomUpdateVersions.Click += new System.EventHandler(this.Btn_GZDoomUpdateVersions_Click);
             // 
             // label5
             // 
