@@ -101,7 +101,7 @@ namespace DRRP_Launcher {
             status("Подготовка к запуску...");
 
             if (cmb_DRRPVer.SelectedIndex == -1 || cmb_GZDoomLang.SelectedIndex == -1 || cmb_GZDoomVer.SelectedIndex == -1) {
-                status("Ошибка! Выберите нужные версии и язык.");
+                MessageBox.Show("Ошибка! Выберите нужные версии и язык.", "Ошибка запуска", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -113,12 +113,9 @@ namespace DRRP_Launcher {
 
             run_InstallDrrp();
 
-            return;
+            // status("Настройка..."); // TODO: Download GZDoom config
 
-            status("Настройка...");
-
-            status("Запуск GZDoom с DRRP...");
-            progressBar.Value = 100;
+            run_launch();
         }
 
         private void run_InstallEngine() {
@@ -204,6 +201,38 @@ namespace DRRP_Launcher {
 
             progressBar.Value = 100;
             status("doom2.wad успешно установлен!");
+        }
+
+        private void run_launch() {
+            progressBar.Value = 100;
+            EngineVersion engineVersion = gzdoom_versions[cmb_GZDoomVer.SelectedItem.ToString()];
+            FileInfo engine = new FileInfo(config.config.folder + @"\Engines\" + engineVersion.foldername + @"\gzdoom.exe"); // TODO: binaryname
+
+            if (!engine.Exists) {
+                MessageBox.Show("Ошибка! Файл порта был удалён перед попыткой запуска. Попробуйте ещё раз.", "gzdoom.exe не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            FileInfo doom2wad = new FileInfo(config.config.folder + @"\Global\doom2.wad");
+
+            if (!doom2wad.Exists) {
+                MessageBox.Show("Ошибка! Файл doom2.wad был удалён перед попыткой запуска. Попробуйте ещё раз.", "doom2.wad не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DrrpVersion drrpVersion = drrp_versions[cmb_DRRPVer.SelectedItem.ToString()];
+            FileInfo drrpfilepk3 = new FileInfo(config.config.folder + @"\DRRP\" + drrpVersion.foldername + ".pk3");
+
+            if (!drrpfilepk3.Exists) {
+                MessageBox.Show("Ошибка! Файл мода был удалён перед попыткой запуска. Попробуйте ещё раз.", "pk3 файл не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            status($"Запуск {engineVersion.name} с {drrpVersion.name}...");
+
+            string[] args = { "-iwad", doom2wad.FullName, "-file", drrpfilepk3.FullName };
+
+            System.Diagnostics.Process.Start(engine.FullName, String.Join(" ", args));
         }
 
         private void status(string text) {
