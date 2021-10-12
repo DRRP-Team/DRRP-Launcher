@@ -135,6 +135,8 @@ namespace DRRP_Launcher {
 
             run_InstallDrrp();
 
+            run_InstallConfig();
+
             // status("Настройка..."); // TODO: Download GZDoom config
 
             run_launch();
@@ -237,6 +239,33 @@ namespace DRRP_Launcher {
             //status("doom2.wad успешно установлен!");
         }
 
+        private void run_InstallConfig()
+        {
+            FileInfo gameconfig = new FileInfo(Path.Combine(config.config.folder, "Global", "config.ini"));
+
+            if (gameconfig.Exists) {
+                status("config.ini already exists.");
+                //status("doom2.wad уже установлен.");
+                return;
+            }
+
+            progressBar.Value = 0;
+
+            status("Downloading config.ini...");
+            //status("Скачивание doom2.wad...");
+
+            string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/feat/simplify/config.ini";
+            //string url = "https://github.com/Akbar30Bill/DOOM_wads/raw/master/doom2.wad";
+
+            using (var client = new WebClient()) {
+                client.DownloadFile(url, gameconfig.FullName);
+            }
+
+            progressBar.Value = 100;
+            status("config.ini installed successfully!");
+            //status("doom2.wad успешно установлен!");
+        }
+
         private void run_launch() {
             progressBar.Value = 100;
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
@@ -272,6 +301,7 @@ namespace DRRP_Launcher {
             string[] args = {
                 "-iwad", doom2wad.FullName,
                 "-file", drrpfilepk3.FullName,
+                "-config", Path.Combine(config.config.folder, "Global", "config.ini"),
                 "+language", cmb_language.SelectedIndex == 1 ? "ru" : "en",
                 in_args.Text
             };
