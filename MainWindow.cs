@@ -26,8 +26,9 @@ namespace DRRP_Launcher {
             fetchConfig();
 
             in_mainFolder.Text = config.config.folder;
+            in_args.Text = config.config.additional_args;
 
-            cmb_pack.SelectedIndex = cmb_language.FindStringExact(config.config.selected_pack);
+            cmb_pack.SelectedIndex = cmb_pack.FindStringExact(config.config.selected_pack);
             cmb_language.SelectedIndex = cmb_language.FindStringExact(config.config.selected_language);
 
             if (cmb_pack.SelectedIndex == -1) cmb_pack.SelectedIndex = 0;
@@ -47,7 +48,7 @@ namespace DRRP_Launcher {
             };
 
             foreach (string folder in folders) {
-                Directory.CreateDirectory(config.config.folder + @"\" + folder);
+                Directory.CreateDirectory(Path.Combine(config.config.folder, folder));
             }
         }
 
@@ -68,7 +69,8 @@ namespace DRRP_Launcher {
             foreach (var engine in engines) {
                 gzdoom_versions.Add(
                     engine["name"].ToString(),
-                    new EngineVersion(engine["name"].ToString(), engine["url"].ToString(), engine["foldername"].ToString())
+                    new EngineVersion(engine["name"].ToString(), engine["url"].ToString(),
+                    engine["foldername"].ToString(), engine["binaryname"].ToString())
                 );
             }
 
@@ -79,7 +81,9 @@ namespace DRRP_Launcher {
             foreach (var version in versions) {
                 drrp_versions.Add(
                     version["name"].ToString(), 
-                    new DrrpVersion(version["name"].ToString(), version["url"].ToString(), version["foldername"].ToString())
+                    new DrrpVersion(
+                        version["name"].ToString(), version["url"].ToString(),
+                        version["foldername"].ToString(), (bool)version["force_download"])
                 );
             }
 
@@ -102,11 +106,11 @@ namespace DRRP_Launcher {
         }
 
         private void Btn_openDRRPFolder_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start("explorer.exe", config.config.folder + @"\DRRP");
+            System.Diagnostics.Process.Start("explorer.exe", Path.Combine(config.config.folder, "DRRP"));
         }
 
         private void Btn_openGZDoomFolder_Click(object sender, EventArgs e) {
-            System.Diagnostics.Process.Start("explorer.exe", config.config.folder + @"\Engines");
+            System.Diagnostics.Process.Start("explorer.exe", Path.Combine(config.config.folder, "Engines"));
         }
 
         private void Btn_run_Click(object sender, EventArgs e) {
@@ -117,6 +121,9 @@ namespace DRRP_Launcher {
                 MessageBox.Show("Ошибка! Выберите нужную версию и язык.", "Ошибка запуска", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            config.config.additional_args = in_args.Text;
+            config.save();
 
             run_InstallEngine();
 
@@ -132,7 +139,7 @@ namespace DRRP_Launcher {
         private void run_InstallEngine() {
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
             EngineVersion version = gzdoom_versions[pack.engine];
-            DirectoryInfo extractDir = new DirectoryInfo(config.config.folder + @"\Engines\" + version.foldername);
+            DirectoryInfo extractDir = new DirectoryInfo(Path.Combine(config.config.folder, "Engines", version.foldername));
 
             if (extractDir.Exists) {
                 status($"{version.name} уже установлен.");
@@ -143,12 +150,12 @@ namespace DRRP_Launcher {
             
             status($"Скачивание {version.name}...");
 
-            DirectoryInfo downloadDir = new DirectoryInfo(config.config.folder + @"\Temp");
+            DirectoryInfo downloadDir = new DirectoryInfo(Path.Combine(config.config.folder, "Temp"));
 
             ClearDirectory(downloadDir);
 
             using (var client = new WebClient()) {
-                client.DownloadFile(version.url, downloadDir.FullName + @"\Engine.zip");
+                client.DownloadFile(version.url, Path.Combine(downloadDir.FullName, "Engine.zip"));
             }
 
             progressBar.Value = 50;
@@ -157,7 +164,7 @@ namespace DRRP_Launcher {
 
             extractDir.Create();
 
-            using (var zipFile = new ZipFile(downloadDir.FullName + @"\Engine.zip")) {
+            using (var zipFile = new ZipFile(Path.Combine(downloadDir.FullName, "Engine.zip"))) {
                 zipFile.ExtractAll(extractDir.FullName);
             }
 
@@ -175,9 +182,9 @@ namespace DRRP_Launcher {
         private void run_InstallDrrp() {
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
             DrrpVersion version = drrp_versions[pack.drrp];
-            FileInfo drrpfilepk3 = new FileInfo(config.config.folder + @"\DRRP\" + version.foldername + ".pk3");
+            FileInfo drrpfilepk3 = new FileInfo(Path.Combine(config.config.folder, "DRRP", version.foldername + ".pk3"));
 
-            if (drrpfilepk3.Exists) {
+            if (drrpfilepk3.Exists && !version.forceDownload) {
                 status($"{version.name} уже установлен.");
                 return;
             }
@@ -195,7 +202,7 @@ namespace DRRP_Launcher {
         }
 
         private void run_InstallDoom2() {
-            FileInfo doom2wad = new FileInfo(config.config.folder + @"\Global\doom2.wad");
+            FileInfo doom2wad = new FileInfo(Path.Combine(config.config.folder, "Global", "doom2.wad"));
 
             if (doom2wad.Exists) {
                 status("doom2.wad уже установлен.");
@@ -220,14 +227,14 @@ namespace DRRP_Launcher {
             progressBar.Value = 100;
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
             EngineVersion engineVersion = gzdoom_versions[pack.engine];
-            FileInfo engine = new FileInfo(config.config.folder + @"\Engines\" + engineVersion.foldername + @"\gzdoom.exe"); // TODO: binaryname
+            FileInfo engine = new FileInfo(Path.Combine(config.config.folder, "Engines", engineVersion.foldername, $"{engineVersion.binaryname}.exe"));
 
             if (!engine.Exists) {
                 MessageBox.Show("Ошибка! Файл порта был удалён перед попыткой запуска. Попробуйте ещё раз.", "gzdoom.exe не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            FileInfo doom2wad = new FileInfo(config.config.folder + @"\Global\doom2.wad");
+            FileInfo doom2wad = new FileInfo(Path.Combine(config.config.folder, "Global", "doom2.wad"));
 
             if (!doom2wad.Exists) {
                 MessageBox.Show("Ошибка! Файл doom2.wad был удалён перед попыткой запуска. Попробуйте ещё раз.", "doom2.wad не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -235,7 +242,7 @@ namespace DRRP_Launcher {
             }
 
             DrrpVersion drrpVersion = drrp_versions[pack.drrp];
-            FileInfo drrpfilepk3 = new FileInfo(config.config.folder + @"\DRRP\" + drrpVersion.foldername + ".pk3");
+            FileInfo drrpfilepk3 = new FileInfo(Path.Combine(config.config.folder, "DRRP", $"{drrpVersion.foldername}.pk3"));
 
             if (!drrpfilepk3.Exists) {
                 MessageBox.Show("Ошибка! Файл мода был удалён перед попыткой запуска. Попробуйте ещё раз.", "pk3 файл не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -288,11 +295,13 @@ namespace DRRP_Launcher {
         public string name;
         public string url;
         public string foldername;
+        public bool forceDownload;
 
-        public DrrpVersion(string _name, string _url, string _foldername) {
+        public DrrpVersion(string _name, string _url, string _foldername, bool _forceDownload) {
             name = _name;
             url = _url;
             foldername = _foldername;
+            forceDownload = _forceDownload;
         }
     }
 
@@ -300,11 +309,13 @@ namespace DRRP_Launcher {
         public string name;
         public string url;
         public string foldername;
+        public string binaryname;
 
-        public EngineVersion(string _name, string _url, string _foldername) {
+        public EngineVersion(string _name, string _url, string _foldername, string _binaryname) {
             name = _name;
             url = _url;
             foldername = _foldername;
+            binaryname = _binaryname;
         }
     }
 

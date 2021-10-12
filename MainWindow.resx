@@ -391,10 +391,10 @@
     <value>3</value>
   </data>
   <data name="lb_RunStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 312</value>
+    <value>9, 286</value>
   </data>
   <data name="lb_RunStatus.Size" type="System.Drawing.Size, System.Drawing">
-    <value>457, 29</value>
+    <value>457, 23</value>
   </data>
   <data name="lb_RunStatus.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -576,6 +576,21 @@
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="lb_notes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="lb_notes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lb_notes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 509</value>
+  </data>
+  <data name="lb_notes.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lb_notes.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
   <data name="&gt;&gt;lb_notes.Name" xml:space="preserve">
     <value>lb_notes</value>
   </data>
@@ -587,9 +602,6 @@
   </data>
   <data name="&gt;&gt;lb_notes.ZOrder" xml:space="preserve">
     <value>0</value>
-  </data>
-  <data name="groupBox4.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 13</value>
@@ -621,33 +633,6 @@
   <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="lb_notes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 20</value>
-  </data>
-  <data name="lb_notes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lb_notes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 509</value>
-  </data>
-  <data name="lb_notes.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lb_notes.Text" xml:space="preserve">
-    <value>...</value>
-  </data>
-  <data name="&gt;&gt;lb_notes.Name" xml:space="preserve">
-    <value>lb_notes</value>
-  </data>
-  <data name="&gt;&gt;lb_notes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lb_notes.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;lb_notes.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -661,10 +646,13 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1061, 728</value>
+    <value>824, 606</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>824, 606</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Doom RPG Remake Project Launcher v0.0.1</value>
+    <value>Doom RPG Remake Project Launcher v2.0.0</value>
   </data>
   <data name="&gt;&gt;folderBrowserDialog1.Name" xml:space="preserve">
     <value>folderBrowserDialog1</value>
