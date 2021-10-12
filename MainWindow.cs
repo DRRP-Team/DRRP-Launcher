@@ -54,8 +54,7 @@ namespace DRRP_Launcher {
         }
 
         private void fetchConfig() {
-            //string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json";
-            string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/feat/simplify/launcher_data.json";
+            string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json";
             var data = Internet.GetJsonObject(url);
             
             if ((int)data["version"] != 1) {
@@ -254,8 +253,7 @@ namespace DRRP_Launcher {
             status("Downloading config.ini...");
             //status("Скачивание doom2.wad...");
 
-            string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/feat/simplify/config.ini";
-            //string url = "https://github.com/Akbar30Bill/DOOM_wads/raw/master/doom2.wad";
+            string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/config_default.ini";
 
             using (var client = new WebClient()) {
                 client.DownloadFile(url, gameconfig.FullName);
