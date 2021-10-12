@@ -16,7 +16,7 @@
     {
       "name": "Nightly (Unstable) & LZDoom v3.88a",
       "engine": "LZDoom v3.88a",
-      "drrp": "nightly",
+      "drrp": "DRRP Nightly",
       "notes": "Download unstable DRRP build from the master branch"
     }
   ],
