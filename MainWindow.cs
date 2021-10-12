@@ -22,7 +22,6 @@ namespace DRRP_Launcher {
         private void Window_Load(object sender, EventArgs e) {
             config.load();
             initFolders();
-            fetchConfig();
 
             in_mainFolder.Text = config.config.folder;
             if (cmb_DRRPVer.SelectedIndex == -1) cmb_DRRPVer.SelectedIndex = 0;
@@ -230,7 +229,7 @@ namespace DRRP_Launcher {
 
             status($"Запуск {engineVersion.name} с {drrpVersion.name}...");
 
-            string[] args = { "-iwad", doom2wad.FullName, "-file", drrpfilepk3.FullName };
+            string[] args = { "-iwad", doom2wad.FullName, "-file", drrpfilepk3.FullName, in_args.Text };
 
             System.Diagnostics.Process.Start(engine.FullName, String.Join(" ", args));
         }

@@ -25,7 +25,7 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.chk_refreshOnStart = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.in_mainFolder = new System.Windows.Forms.TextBox();
             this.btn_changeMainFolder = new System.Windows.Forms.Button();
@@ -40,7 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.in_args = new System.Windows.Forms.TextBox();
             this.btn_openGZDoomFolder = new System.Windows.Forms.Button();
             this.cmb_GZDoomLang = new System.Windows.Forms.ComboBox();
             this.cmb_GZDoomVer = new System.Windows.Forms.ComboBox();
@@ -59,20 +59,20 @@
             // groupBox1
             // 
             resources.ApplyResources(this.groupBox1, "groupBox1");
-            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.chk_refreshOnStart);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.in_mainFolder);
             this.groupBox1.Controls.Add(this.btn_changeMainFolder);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
-            // checkBox1
+            // chk_refreshOnStart
             // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Checked = true;
-            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            resources.ApplyResources(this.chk_refreshOnStart, "chk_refreshOnStart");
+            this.chk_refreshOnStart.Checked = true;
+            this.chk_refreshOnStart.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chk_refreshOnStart.Name = "chk_refreshOnStart";
+            this.chk_refreshOnStart.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -147,7 +147,7 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.textBox1);
+            this.groupBox3.Controls.Add(this.in_args);
             this.groupBox3.Controls.Add(this.btn_openGZDoomFolder);
             this.groupBox3.Controls.Add(this.cmb_GZDoomLang);
             this.groupBox3.Controls.Add(this.cmb_GZDoomVer);
@@ -163,10 +163,10 @@
             resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
             // 
-            // textBox1
+            // in_args
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.in_args, "in_args");
+            this.in_args.Name = "in_args";
             // 
             // btn_openGZDoomFolder
             // 
@@ -274,9 +274,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btn_openDRRPFolder;
         private System.Windows.Forms.Button btn_openGZDoomFolder;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox chk_refreshOnStart;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox in_args;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lb_RunStatus;
     }
