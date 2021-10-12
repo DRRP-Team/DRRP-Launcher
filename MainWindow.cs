@@ -107,9 +107,10 @@ namespace DRRP_Launcher {
 
             run_InstallEngine();
 
-            return;
 
             run_InstallDoom2();
+
+            return;
 
             run_InstallDrrp();
 
@@ -155,8 +156,8 @@ namespace DRRP_Launcher {
         }
 
         private void ClearDirectory(DirectoryInfo directory) {
-            foreach (System.IO.FileInfo file in directory.GetFiles()) file.Delete();
-            foreach (System.IO.DirectoryInfo subDirectory in directory.GetDirectories()) subDirectory.Delete(true);
+            foreach (FileInfo file in directory.GetFiles()) file.Delete();
+            foreach (DirectoryInfo subDirectory in directory.GetDirectories()) subDirectory.Delete(true);
         }
 
         private void run_InstallDrrp() {
@@ -164,7 +165,25 @@ namespace DRRP_Launcher {
         }
 
         private void run_InstallDoom2() {
+            FileInfo doom2wad = new FileInfo(config.config.folder + @"\Global\doom2.wad");
+
+            if (doom2wad.Exists) {
+                status("doom2.wad уже установлен.");
+                return;
+            }
+
+            progressBar.Value = 0;
+
             status("Скачивание doom2.wad...");
+
+            string url = "https://github.com/Akbar30Bill/DOOM_wads/raw/master/doom2.wad";
+
+            using (var client = new WebClient()) {
+                client.DownloadFile(url, doom2wad.FullName);
+            }
+
+            progressBar.Value = 100;
+            status("doom2.wad успешно установлен!");
         }
 
         private void status(string text) {
