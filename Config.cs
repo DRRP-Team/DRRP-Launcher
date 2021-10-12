@@ -22,6 +22,8 @@ namespace DRRP_Launcher
         public string drrp_repository { get; set; }
 
         public bool fetch_on_load { get; set; }
+
+        public string folder { get; set; }
     }
 
     class Config {
@@ -37,6 +39,7 @@ namespace DRRP_Launcher
             config.engines_api = "";
             config.engine_version = 351;
             config.fetch_on_load = true;
+            config.folder = Directory.GetCurrentDirectory();
         }
 
         public void load() {

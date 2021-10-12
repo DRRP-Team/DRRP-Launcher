@@ -105,6 +105,7 @@
             resources.ApplyResources(this.btn_openDRRPFolder, "btn_openDRRPFolder");
             this.btn_openDRRPFolder.Name = "btn_openDRRPFolder";
             this.btn_openDRRPFolder.UseVisualStyleBackColor = true;
+            this.btn_openDRRPFolder.Click += new System.EventHandler(this.Btn_openDRRPFolder_Click);
             // 
             // groupBox4
             // 
@@ -170,6 +171,7 @@
             resources.ApplyResources(this.btn_openGZDoomFolder, "btn_openGZDoomFolder");
             this.btn_openGZDoomFolder.Name = "btn_openGZDoomFolder";
             this.btn_openGZDoomFolder.UseVisualStyleBackColor = true;
+            this.btn_openGZDoomFolder.Click += new System.EventHandler(this.Btn_openGZDoomFolder_Click);
             // 
             // cmb_GZDoomLang
             // 

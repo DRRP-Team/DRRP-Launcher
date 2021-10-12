@@ -17,12 +17,23 @@ namespace DRRP_Launcher {
             InitializeComponent();
             config = new Config();
         }
+        private void Window_Load(object sender, EventArgs e) {
+            initFolders();
+            config.load();
+            fetchConfig();
+
+            if (cmb_DRRPVer.SelectedIndex == -1) cmb_DRRPVer.SelectedIndex = 0;
+            if (cmb_GZDoomLang.SelectedIndex == -1) cmb_GZDoomLang.SelectedIndex = 0;
+            if (cmb_GZDoomVer.SelectedIndex == -1) cmb_GZDoomVer.SelectedIndex = 0;
+        }
 
         private void Btn_DRRPUpdateVersions_Click(object sender, EventArgs e) {
             fetchConfig();
         }
 
         private void initFolders() {
+            in_mainFolder.Text = config.config.folder;
+
             string[] folders = {
                 "DRRP",
                 "Engines"
@@ -59,14 +70,16 @@ namespace DRRP_Launcher {
         }
 
 
-        private void Window_Load(object sender, EventArgs e) {
-            initFolders();
-            config.load();
+        private void Btn_GZDoomUpdateVersions_Click(object sender, EventArgs e) {
             fetchConfig();
         }
 
-        private void Btn_GZDoomUpdateVersions_Click(object sender, EventArgs e) {
-            fetchConfig();
+        private void Btn_openDRRPFolder_Click(object sender, EventArgs e) {
+
+        }
+
+        private void Btn_openGZDoomFolder_Click(object sender, EventArgs e) {
+
         }
     }
 }
