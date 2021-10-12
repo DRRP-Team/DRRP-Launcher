@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using Alienlab.Zip;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -64,7 +65,7 @@ namespace DRRP_Launcher {
                 cmb_GZDoomVer.Items.Add(engine["name"].ToString());
                 gzdoom_versions.Add(
                     engine["name"].ToString(),
-                    new EngineVersion(engine["name"].ToString(), engine["url"].ToString())
+                    new EngineVersion(engine["name"].ToString(), engine["url"].ToString(), engine["foldername"].ToString())
                 );
             }
 
@@ -78,7 +79,7 @@ namespace DRRP_Launcher {
                 cmb_DRRPVer.Items.Add((string)version["name"]);
                 drrp_versions.Add(
                     version["name"].ToString(), 
-                    new DrrpVersion(version["name"].ToString(), version["url"].ToString(), version["filename"].ToString())
+                    new DrrpVersion(version["name"].ToString(), version["url"].ToString(), version["foldername"].ToString())
                 );
             }
         }
@@ -119,21 +120,38 @@ namespace DRRP_Launcher {
         }
 
         private void run_InstallEngine() {
-            progressBar.Value = 0;
             EngineVersion version = gzdoom_versions[cmb_GZDoomVer.SelectedItem.ToString()];
+            DirectoryInfo extractDir = new DirectoryInfo(config.config.folder + @"\Engines\" + version.foldername);
+
+            if (extractDir.Exists) {
+                status($"{version.name} уже установлен.");
+                return;
+            }
+
+            progressBar.Value = 0;
+            
             status($"Скачивание {version.name}...");
 
-            DirectoryInfo directory = new DirectoryInfo(config.config.folder + @"\Temp");
+            DirectoryInfo downloadDir = new DirectoryInfo(config.config.folder + @"\Temp");
 
-            ClearDirectory(directory);
+            ClearDirectory(downloadDir);
 
             using (var client = new WebClient()) {
-                client.DownloadFile(version.url, directory.FullName + @"\Engine.zip");
+                client.DownloadFile(version.url, downloadDir.FullName + @"\Engine.zip");
             }
 
             progressBar.Value = 50;
 
             status($"Распаковка {version.name}...");
+
+            extractDir.Create();
+
+            using (var zipFile = new ZipFile(downloadDir.FullName + @"\Engine.zip")) {
+                zipFile.ExtractAll(extractDir.FullName);
+            }
+
+            progressBar.Value = 100;
+            status($"{version.name} успешно установлен!");
         }
 
         private void ClearDirectory(DirectoryInfo directory) {
@@ -157,22 +175,24 @@ namespace DRRP_Launcher {
     public class DrrpVersion {
         public string name;
         public string url;
-        public string filename;
+        public string foldername;
 
-        public DrrpVersion(string _name, string _url, string _filename) {
+        public DrrpVersion(string _name, string _url, string _foldername) {
             name = _name;
             url = _url;
-            filename = _filename;
+            foldername = _foldername;
         }
     }
 
     public class EngineVersion {
         public string name;
         public string url;
+        public string foldername;
 
-        public EngineVersion(string _name, string _url) {
+        public EngineVersion(string _name, string _url, string _foldername) {
             name = _name;
             url = _url;
+            foldername = _foldername;
         }
     }
 }
