@@ -110,9 +110,10 @@ namespace DRRP_Launcher {
 
             run_InstallDoom2();
 
-            return;
 
             run_InstallDrrp();
+
+            return;
 
             status("Настройка...");
 
@@ -151,6 +152,8 @@ namespace DRRP_Launcher {
                 zipFile.ExtractAll(extractDir.FullName);
             }
 
+            ClearDirectory(downloadDir);
+
             progressBar.Value = 100;
             status($"{version.name} успешно установлен!");
         }
@@ -161,7 +164,24 @@ namespace DRRP_Launcher {
         }
 
         private void run_InstallDrrp() {
-            status("Скачивание DRRP...");
+            DrrpVersion version = drrp_versions[cmb_DRRPVer.SelectedItem.ToString()];
+            FileInfo drrpfilepk3 = new FileInfo(config.config.folder + @"\DRRP\" + version.foldername + ".pk3");
+
+            if (drrpfilepk3.Exists) {
+                status($"{version.name} уже установлен.");
+                return;
+            }
+
+            progressBar.Value = 0;
+
+            status($"Скачивание {version.name}...");
+
+            using (var client = new WebClient()) {
+                client.DownloadFile(version.url, drrpfilepk3.FullName);
+            }
+
+            progressBar.Value = 100;
+            status($"{version.name} успешно установлен!");
         }
 
         private void run_InstallDoom2() {
