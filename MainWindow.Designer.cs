@@ -48,6 +48,8 @@
             this.btn_GZDoomUpdateVersions = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.btn_run = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lb_RunStatus = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -208,11 +210,24 @@
             resources.ApplyResources(this.btn_run, "btn_run");
             this.btn_run.Name = "btn_run";
             this.btn_run.UseVisualStyleBackColor = true;
+            this.btn_run.Click += new System.EventHandler(this.Btn_run_Click);
+            // 
+            // progressBar
+            // 
+            resources.ApplyResources(this.progressBar, "progressBar");
+            this.progressBar.Name = "progressBar";
+            // 
+            // lb_RunStatus
+            // 
+            resources.ApplyResources(this.lb_RunStatus, "lb_RunStatus");
+            this.lb_RunStatus.Name = "lb_RunStatus";
             // 
             // Window
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lb_RunStatus);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.btn_run);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -232,6 +247,7 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -261,6 +277,8 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label lb_RunStatus;
     }
 }
 

@@ -4,15 +4,13 @@ using System.IO;
 using Newtonsoft.Json;
 
 
-namespace DRRP_Launcher
-{
+namespace DRRP_Launcher {
     public class IEngine {
         public int version { get; set; }
         public string binary { get; set; }
     }
 
-    public class IConfig
-    {
+    public class IConfig {
         public int version { get; set; }
         public IEngine[] engines { get; set; }
         public string engines_api { get; set; }
