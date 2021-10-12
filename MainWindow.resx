@@ -133,13 +133,13 @@
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 17</value>
+    <value>197, 17</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="label3.Text" xml:space="preserve">
-    <value>Дополнительные ключи запуска:</value>
+    <value>Additional command line args:</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -163,13 +163,13 @@
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>148, 17</value>
+    <value>115, 17</value>
   </data>
   <data name="label1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="label1.Text" xml:space="preserve">
-    <value>Папка для установки</value>
+    <value>Installation folder</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -244,7 +244,7 @@
     <value>0</value>
   </data>
   <data name="btn_changeMainFolder.Text" xml:space="preserve">
-    <value>Изменить</value>
+    <value>Change</value>
   </data>
   <data name="&gt;&gt;btn_changeMainFolder.Name" xml:space="preserve">
     <value>btn_changeMainFolder</value>
@@ -274,7 +274,7 @@
     <value>0</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
-    <value>Дополнительно</value>
+    <value>Advanced</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
@@ -334,13 +334,13 @@
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>56, 17</value>
+    <value>85, 17</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="label2.Text" xml:space="preserve">
-    <value>Версия</value>
+    <value>Select pack:</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -357,9 +357,6 @@
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label6.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -370,13 +367,13 @@
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 17</value>
+    <value>114, 17</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="label6.Text" xml:space="preserve">
-    <value>Язык</value>
+    <value>Select language:</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -400,7 +397,7 @@
     <value>5</value>
   </data>
   <data name="lb_RunStatus.Text" xml:space="preserve">
-    <value>Нажмите "Запустить" для запуска игры</value>
+    <value>Press "Play" to run the game</value>
   </data>
   <data name="lb_RunStatus.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -430,7 +427,7 @@
     <value>3</value>
   </data>
   <data name="btn_run.Text" xml:space="preserve">
-    <value>Играть</value>
+    <value>Play</value>
   </data>
   <data name="&gt;&gt;btn_run.Name" xml:space="preserve">
     <value>btn_run</value>
@@ -481,7 +478,7 @@
     <value>4</value>
   </data>
   <data name="btn_openDRRPFolder.Text" xml:space="preserve">
-    <value>Открыть папку DRRP</value>
+    <value>Open DRRP folder</value>
   </data>
   <data name="&gt;&gt;btn_openDRRPFolder.Name" xml:space="preserve">
     <value>btn_openDRRPFolder</value>
@@ -535,7 +532,7 @@
     <value>4</value>
   </data>
   <data name="btn_openGZDoomFolder.Text" xml:space="preserve">
-    <value>Открыть папку GZDoom</value>
+    <value>Open Engine folder</value>
   </data>
   <data name="&gt;&gt;btn_openGZDoomFolder.Name" xml:space="preserve">
     <value>btn_openGZDoomFolder</value>
@@ -619,7 +616,7 @@
     <value>6</value>
   </data>
   <data name="groupBox4.Text" xml:space="preserve">
-    <value>Информация</value>
+    <value>Information about the pack</value>
   </data>
   <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
     <value>groupBox4</value>
