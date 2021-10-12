@@ -5,21 +5,12 @@ using Newtonsoft.Json;
 
 
 namespace DRRP_Launcher {
-    public class IEngine {
-        public int version { get; set; }
-        public string binary { get; set; }
-    }
-
     public class IConfig {
         public int version { get; set; }
-        public IEngine[] engines { get; set; }
-        public string engines_api { get; set; }
-        public int engine_version { get; set; }
 
-        public string drrp_version { get; set; }
-        public string drrp_repository { get; set; }
-
-        public bool fetch_on_load { get; set; }
+        public string selected_engine { get; set; }
+        public string selected_drrp { get; set; }
+        public string selected_language { get; set; }
 
         public string folder { get; set; }
     }
@@ -32,11 +23,9 @@ namespace DRRP_Launcher {
         public Config() {
             config = new IConfig();
             config.version = 0;
-            config.drrp_repository = "https://github.com/DRRP-Team/DRRP";
-            config.drrp_version = "0.4.0";
-            config.engines_api = "";
-            config.engine_version = 351;
-            config.fetch_on_load = true;
+            config.selected_drrp = "";
+            config.selected_engine = "";
+            config.selected_language = "English";
             config.folder = Directory.GetCurrentDirectory();
         }
 

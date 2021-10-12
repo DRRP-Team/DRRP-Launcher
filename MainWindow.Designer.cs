@@ -136,8 +136,10 @@
             // 
             // cmb_DRRPVer
             // 
+            this.cmb_DRRPVer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmb_DRRPVer, "cmb_DRRPVer");
             this.cmb_DRRPVer.Name = "cmb_DRRPVer";
+            this.cmb_DRRPVer.SelectedIndexChanged += new System.EventHandler(this.Cmb_DRRPVer_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -177,16 +179,20 @@
             // 
             // cmb_GZDoomLang
             // 
+            this.cmb_GZDoomLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmb_GZDoomLang, "cmb_GZDoomLang");
             this.cmb_GZDoomLang.Items.AddRange(new object[] {
             resources.GetString("cmb_GZDoomLang.Items"),
             resources.GetString("cmb_GZDoomLang.Items1")});
             this.cmb_GZDoomLang.Name = "cmb_GZDoomLang";
+            this.cmb_GZDoomLang.SelectedIndexChanged += new System.EventHandler(this.Cmb_GZDoomLang_SelectedIndexChanged);
             // 
             // cmb_GZDoomVer
             // 
+            this.cmb_GZDoomVer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmb_GZDoomVer, "cmb_GZDoomVer");
             this.cmb_GZDoomVer.Name = "cmb_GZDoomVer";
+            this.cmb_GZDoomVer.SelectedIndexChanged += new System.EventHandler(this.Cmb_GZDoomVer_SelectedIndexChanged);
             // 
             // label6
             // 

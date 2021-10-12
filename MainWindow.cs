@@ -22,8 +22,14 @@ namespace DRRP_Launcher {
         private void Window_Load(object sender, EventArgs e) {
             config.load();
             initFolders();
+            fetchConfig();
 
             in_mainFolder.Text = config.config.folder;
+
+            cmb_DRRPVer.SelectedIndex = cmb_GZDoomLang.FindStringExact(config.config.selected_drrp);
+            cmb_DRRPVer.SelectedIndex = cmb_GZDoomLang.FindStringExact(config.config.selected_engine);
+            cmb_GZDoomLang.SelectedIndex = cmb_GZDoomLang.FindStringExact(config.config.selected_language);
+
             if (cmb_DRRPVer.SelectedIndex == -1) cmb_DRRPVer.SelectedIndex = 0;
             if (cmb_GZDoomLang.SelectedIndex == -1) cmb_GZDoomLang.SelectedIndex = 0;
             if (cmb_GZDoomVer.SelectedIndex == -1) cmb_GZDoomVer.SelectedIndex = 0;
@@ -106,9 +112,7 @@ namespace DRRP_Launcher {
 
             run_InstallEngine();
 
-
             run_InstallDoom2();
-
 
             run_InstallDrrp();
 
@@ -229,13 +233,33 @@ namespace DRRP_Launcher {
 
             status($"Запуск {engineVersion.name} с {drrpVersion.name}...");
 
-            string[] args = { "-iwad", doom2wad.FullName, "-file", drrpfilepk3.FullName, in_args.Text };
+            string[] args = {
+                "-iwad", doom2wad.FullName,
+                "-file", drrpfilepk3.FullName,
+                "+language", cmb_GZDoomLang.SelectedIndex == 1 ? "ru" : "en",
+                in_args.Text
+            };
 
             System.Diagnostics.Process.Start(engine.FullName, String.Join(" ", args));
         }
 
         private void status(string text) {
             lb_RunStatus.Text = text;
+        }
+
+        private void Cmb_DRRPVer_SelectedIndexChanged(object sender, EventArgs e) {
+            config.config.selected_drrp = cmb_DRRPVer.SelectedItem.ToString();
+            config.save();
+        }
+
+        private void Cmb_GZDoomVer_SelectedIndexChanged(object sender, EventArgs e) {
+            config.config.selected_engine = cmb_GZDoomVer.SelectedItem.ToString();
+            config.save();
+        }
+
+        private void Cmb_GZDoomLang_SelectedIndexChanged(object sender, EventArgs e) {
+            config.config.selected_language = cmb_GZDoomLang.SelectedItem.ToString();
+            config.save();
         }
     }
 
