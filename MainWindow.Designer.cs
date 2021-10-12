@@ -90,6 +90,7 @@
             resources.ApplyResources(this.btn_changeMainFolder, "btn_changeMainFolder");
             this.btn_changeMainFolder.Name = "btn_changeMainFolder";
             this.btn_changeMainFolder.UseVisualStyleBackColor = true;
+            this.btn_changeMainFolder.Click += new System.EventHandler(this.Btn_changeMainFolder_Click);
             // 
             // groupBox2
             // 

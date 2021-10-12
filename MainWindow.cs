@@ -261,6 +261,19 @@ namespace DRRP_Launcher {
             config.config.selected_language = cmb_GZDoomLang.SelectedItem.ToString();
             config.save();
         }
+
+        private void Btn_changeMainFolder_Click(object sender, EventArgs e) {
+            using (var dialog = new FolderBrowserDialog()) {
+                DialogResult result = dialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(dialog.SelectedPath)) {
+                    in_mainFolder.Text = dialog.SelectedPath;
+                    config.config.folder = dialog.SelectedPath;
+                    config.save();
+                    initFolders();
+                }
+            }
+        }
     }
 
     public class DrrpVersion {
