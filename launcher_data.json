@@ -11,7 +11,9 @@
     {
       "name": "DRRP v0.4.0",
       "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.4.0/DRRPv0.4.0.pk3",
-      "foldername": "DRRPv0.4.0"
+      "foldername": "DRRPv0.4.0",
+      "releasedate": "13.04.2020",
+      "requirements": "GZDoom 4.0+ (GZDoom 3.5.1+ English-only)"
     }
   ]
 }
