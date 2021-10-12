@@ -32,14 +32,14 @@
             this.btn_changeMainFolder = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cmb_GZDoomLang = new System.Windows.Forms.ComboBox();
+            this.cmb_language = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lb_RunStatus = new System.Windows.Forms.Label();
             this.btn_run = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.btn_openDRRPFolder = new System.Windows.Forms.Button();
-            this.cmb_DRRPVer = new System.Windows.Forms.ComboBox();
+            this.cmb_pack = new System.Windows.Forms.ComboBox();
             this.btn_openGZDoomFolder = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lb_notes = new System.Windows.Forms.Label();
@@ -89,7 +89,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cmb_GZDoomLang);
+            this.groupBox2.Controls.Add(this.cmb_language);
             this.groupBox2.Controls.Add(this.groupBox1);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label6);
@@ -97,21 +97,21 @@
             this.groupBox2.Controls.Add(this.btn_run);
             this.groupBox2.Controls.Add(this.progressBar);
             this.groupBox2.Controls.Add(this.btn_openDRRPFolder);
-            this.groupBox2.Controls.Add(this.cmb_DRRPVer);
+            this.groupBox2.Controls.Add(this.cmb_pack);
             this.groupBox2.Controls.Add(this.btn_openGZDoomFolder);
             resources.ApplyResources(this.groupBox2, "groupBox2");
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
-            // cmb_GZDoomLang
+            // cmb_language
             // 
-            this.cmb_GZDoomLang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cmb_GZDoomLang, "cmb_GZDoomLang");
-            this.cmb_GZDoomLang.Items.AddRange(new object[] {
-            resources.GetString("cmb_GZDoomLang.Items"),
-            resources.GetString("cmb_GZDoomLang.Items1")});
-            this.cmb_GZDoomLang.Name = "cmb_GZDoomLang";
-            this.cmb_GZDoomLang.SelectedIndexChanged += new System.EventHandler(this.Cmb_GZDoomLang_SelectedIndexChanged);
+            this.cmb_language.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmb_language, "cmb_language");
+            this.cmb_language.Items.AddRange(new object[] {
+            resources.GetString("cmb_language.Items"),
+            resources.GetString("cmb_language.Items1")});
+            this.cmb_language.Name = "cmb_language";
+            this.cmb_language.SelectedIndexChanged += new System.EventHandler(this.Cmb_GZDoomLang_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -148,12 +148,12 @@
             this.btn_openDRRPFolder.UseVisualStyleBackColor = true;
             this.btn_openDRRPFolder.Click += new System.EventHandler(this.Btn_openDRRPFolder_Click);
             // 
-            // cmb_DRRPVer
+            // cmb_pack
             // 
-            this.cmb_DRRPVer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cmb_DRRPVer, "cmb_DRRPVer");
-            this.cmb_DRRPVer.Name = "cmb_DRRPVer";
-            this.cmb_DRRPVer.SelectedIndexChanged += new System.EventHandler(this.Cmb_DRRPVer_SelectedIndexChanged);
+            this.cmb_pack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmb_pack, "cmb_pack");
+            this.cmb_pack.Name = "cmb_pack";
+            this.cmb_pack.SelectedIndexChanged += new System.EventHandler(this.Cmb_pack_SelectedIndexChanged);
             // 
             // btn_openGZDoomFolder
             // 
@@ -203,7 +203,7 @@
         private System.Windows.Forms.Button btn_changeMainFolder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cmb_DRRPVer;
+        private System.Windows.Forms.ComboBox cmb_pack;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_run;
         private System.Windows.Forms.Label lb_notes;
@@ -215,7 +215,7 @@
         private System.Windows.Forms.TextBox in_args;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lb_RunStatus;
-        private System.Windows.Forms.ComboBox cmb_GZDoomLang;
+        private System.Windows.Forms.ComboBox cmb_language;
     }
 }
 

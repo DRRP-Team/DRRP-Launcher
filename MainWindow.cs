@@ -13,6 +13,7 @@ namespace DRRP_Launcher {
     public partial class Window : Form {
         private Dictionary<string, DrrpVersion> drrp_versions = new Dictionary<string, DrrpVersion>();
         private Dictionary<string, EngineVersion> gzdoom_versions = new Dictionary<string, EngineVersion>();
+        private Dictionary<string, Pack> packs = new Dictionary<string, Pack>();
         private Config config;
 
         public Window() {
@@ -26,13 +27,11 @@ namespace DRRP_Launcher {
 
             in_mainFolder.Text = config.config.folder;
 
-            cmb_DRRPVer.SelectedIndex = cmb_GZDoomLang.FindStringExact(config.config.selected_drrp);
-            cmb_DRRPVer.SelectedIndex = cmb_GZDoomLang.FindStringExact(config.config.selected_engine);
-            cmb_GZDoomLang.SelectedIndex = cmb_GZDoomLang.FindStringExact(config.config.selected_language);
+            cmb_pack.SelectedIndex = cmb_language.FindStringExact(config.config.selected_pack);
+            cmb_language.SelectedIndex = cmb_language.FindStringExact(config.config.selected_language);
 
-            if (cmb_DRRPVer.SelectedIndex == -1) cmb_DRRPVer.SelectedIndex = 0;
-            if (cmb_GZDoomLang.SelectedIndex == -1) cmb_GZDoomLang.SelectedIndex = 0;
-            if (cmb_GZDoomVer.SelectedIndex == -1) cmb_GZDoomVer.SelectedIndex = 0;
+            if (cmb_pack.SelectedIndex == -1) cmb_pack.SelectedIndex = 0;
+            if (cmb_language.SelectedIndex == -1) cmb_language.SelectedIndex = 0;
         }
 
         private void Btn_DRRPUpdateVersions_Click(object sender, EventArgs e) {
@@ -53,9 +52,11 @@ namespace DRRP_Launcher {
         }
 
         private void fetchConfig() {
-            var data = Internet.GetJsonObject("https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json");
+            //string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json";
+            string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/feat/simplify/launcher_data.json";
+            var data = Internet.GetJsonObject(url);
             
-            if ((int)data["version"] != 0 ) {
+            if ((int)data["version"] != 1) {
                 MessageBox.Show("Информация по версиям пришла для более поздней версии лаунчера! Пожалуйста, обновите ваш лаунчер.");
                 return;
             }
@@ -64,10 +65,7 @@ namespace DRRP_Launcher {
 
             var engines = (JArray)data["engines"];
 
-            cmb_GZDoomVer.Items.Clear();
-
             foreach (var engine in engines) {
-                cmb_GZDoomVer.Items.Add(engine["name"].ToString());
                 gzdoom_versions.Add(
                     engine["name"].ToString(),
                     new EngineVersion(engine["name"].ToString(), engine["url"].ToString(), engine["foldername"].ToString())
@@ -78,13 +76,23 @@ namespace DRRP_Launcher {
 
             var versions = (JArray)data["drrp_versions"];
 
-            cmb_DRRPVer.Items.Clear();
-
             foreach (var version in versions) {
-                cmb_DRRPVer.Items.Add((string)version["name"]);
                 drrp_versions.Add(
                     version["name"].ToString(), 
                     new DrrpVersion(version["name"].ToString(), version["url"].ToString(), version["foldername"].ToString())
+                );
+            }
+
+            packs.Clear();
+
+            var confpacks = (JArray)data["packs"];
+
+            foreach (var pack in confpacks)
+            {
+                cmb_pack.Items.Add(pack["name"].ToString());
+                packs.Add(
+                    pack["name"].ToString(),
+                    new Pack(pack["name"].ToString(), pack["engine"].ToString(), pack["drrp"].ToString(), pack["notes"].ToString())
                 );
             }
         }
@@ -105,8 +113,8 @@ namespace DRRP_Launcher {
             progressBar.Value = 0;
             status("Подготовка к запуску...");
 
-            if (cmb_DRRPVer.SelectedIndex == -1 || cmb_GZDoomLang.SelectedIndex == -1 || cmb_GZDoomVer.SelectedIndex == -1) {
-                MessageBox.Show("Ошибка! Выберите нужные версии и язык.", "Ошибка запуска", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (cmb_pack.SelectedIndex == -1 || cmb_language.SelectedIndex == -1) {
+                MessageBox.Show("Ошибка! Выберите нужную версию и язык.", "Ошибка запуска", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -122,7 +130,8 @@ namespace DRRP_Launcher {
         }
 
         private void run_InstallEngine() {
-            EngineVersion version = gzdoom_versions[cmb_GZDoomVer.SelectedItem.ToString()];
+            Pack pack = packs[cmb_pack.SelectedItem.ToString()];
+            EngineVersion version = gzdoom_versions[pack.engine];
             DirectoryInfo extractDir = new DirectoryInfo(config.config.folder + @"\Engines\" + version.foldername);
 
             if (extractDir.Exists) {
@@ -164,7 +173,8 @@ namespace DRRP_Launcher {
         }
 
         private void run_InstallDrrp() {
-            DrrpVersion version = drrp_versions[cmb_DRRPVer.SelectedItem.ToString()];
+            Pack pack = packs[cmb_pack.SelectedItem.ToString()];
+            DrrpVersion version = drrp_versions[pack.drrp];
             FileInfo drrpfilepk3 = new FileInfo(config.config.folder + @"\DRRP\" + version.foldername + ".pk3");
 
             if (drrpfilepk3.Exists) {
@@ -208,7 +218,8 @@ namespace DRRP_Launcher {
 
         private void run_launch() {
             progressBar.Value = 100;
-            EngineVersion engineVersion = gzdoom_versions[cmb_GZDoomVer.SelectedItem.ToString()];
+            Pack pack = packs[cmb_pack.SelectedItem.ToString()];
+            EngineVersion engineVersion = gzdoom_versions[pack.engine];
             FileInfo engine = new FileInfo(config.config.folder + @"\Engines\" + engineVersion.foldername + @"\gzdoom.exe"); // TODO: binaryname
 
             if (!engine.Exists) {
@@ -223,7 +234,7 @@ namespace DRRP_Launcher {
                 return;
             }
 
-            DrrpVersion drrpVersion = drrp_versions[cmb_DRRPVer.SelectedItem.ToString()];
+            DrrpVersion drrpVersion = drrp_versions[pack.drrp];
             FileInfo drrpfilepk3 = new FileInfo(config.config.folder + @"\DRRP\" + drrpVersion.foldername + ".pk3");
 
             if (!drrpfilepk3.Exists) {
@@ -236,7 +247,7 @@ namespace DRRP_Launcher {
             string[] args = {
                 "-iwad", doom2wad.FullName,
                 "-file", drrpfilepk3.FullName,
-                "+language", cmb_GZDoomLang.SelectedIndex == 1 ? "ru" : "en",
+                "+language", cmb_language.SelectedIndex == 1 ? "ru" : "en",
                 in_args.Text
             };
 
@@ -247,18 +258,8 @@ namespace DRRP_Launcher {
             lb_RunStatus.Text = text;
         }
 
-        private void Cmb_DRRPVer_SelectedIndexChanged(object sender, EventArgs e) {
-            config.config.selected_drrp = cmb_DRRPVer.SelectedItem.ToString();
-            config.save();
-        }
-
-        private void Cmb_GZDoomVer_SelectedIndexChanged(object sender, EventArgs e) {
-            config.config.selected_engine = cmb_GZDoomVer.SelectedItem.ToString();
-            config.save();
-        }
-
         private void Cmb_GZDoomLang_SelectedIndexChanged(object sender, EventArgs e) {
-            config.config.selected_language = cmb_GZDoomLang.SelectedItem.ToString();
+            config.config.selected_language = cmb_language.SelectedItem.ToString();
             config.save();
         }
 
@@ -273,6 +274,13 @@ namespace DRRP_Launcher {
                     initFolders();
                 }
             }
+        }
+
+        private void Cmb_pack_SelectedIndexChanged(object sender, EventArgs e) {
+            Pack pack = packs[cmb_pack.SelectedItem.ToString()];
+            lb_notes.Text = pack.notes;
+            config.config.selected_pack = pack.name;
+            config.save();
         }
     }
 
@@ -297,6 +305,20 @@ namespace DRRP_Launcher {
             name = _name;
             url = _url;
             foldername = _foldername;
+        }
+    }
+
+    public class Pack {
+        public string name;
+        public string notes;
+        public string engine;
+        public string drrp;
+        
+        public Pack(string _name, string _engine, string _drrp, string _notes) {
+            name = _name;
+            engine = _engine;
+            drrp = _drrp;
+            notes = _notes;
         }
     }
 }

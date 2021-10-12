@@ -291,37 +291,37 @@
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <data name="cmb_GZDoomLang.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="cmb_language.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="cmb_GZDoomLang.Items" xml:space="preserve">
+  <data name="cmb_language.Items" xml:space="preserve">
     <value>English</value>
   </data>
-  <data name="cmb_GZDoomLang.Items1" xml:space="preserve">
+  <data name="cmb_language.Items1" xml:space="preserve">
     <value>Русский</value>
   </data>
-  <data name="cmb_GZDoomLang.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="cmb_language.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 38</value>
   </data>
-  <data name="cmb_GZDoomLang.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="cmb_language.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="cmb_GZDoomLang.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cmb_language.Size" type="System.Drawing.Size, System.Drawing">
     <value>454, 24</value>
   </data>
-  <data name="cmb_GZDoomLang.TabIndex" type="System.Int32, mscorlib">
+  <data name="cmb_language.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;cmb_GZDoomLang.Name" xml:space="preserve">
-    <value>cmb_GZDoomLang</value>
+  <data name="&gt;&gt;cmb_language.Name" xml:space="preserve">
+    <value>cmb_language</value>
   </data>
-  <data name="&gt;&gt;cmb_GZDoomLang.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmb_language.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cmb_GZDoomLang.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cmb_language.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="&gt;&gt;cmb_GZDoomLang.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cmb_language.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
@@ -495,31 +495,31 @@
   <data name="&gt;&gt;btn_openDRRPFolder.ZOrder" xml:space="preserve">
     <value>7</value>
   </data>
-  <data name="cmb_DRRPVer.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="cmb_pack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="cmb_DRRPVer.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="cmb_pack.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 87</value>
   </data>
-  <data name="cmb_DRRPVer.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+  <data name="cmb_pack.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
-  <data name="cmb_DRRPVer.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="cmb_pack.Size" type="System.Drawing.Size, System.Drawing">
     <value>454, 24</value>
   </data>
-  <data name="cmb_DRRPVer.TabIndex" type="System.Int32, mscorlib">
+  <data name="cmb_pack.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;cmb_DRRPVer.Name" xml:space="preserve">
-    <value>cmb_DRRPVer</value>
+  <data name="&gt;&gt;cmb_pack.Name" xml:space="preserve">
+    <value>cmb_pack</value>
   </data>
-  <data name="&gt;&gt;cmb_DRRPVer.Type" xml:space="preserve">
+  <data name="&gt;&gt;cmb_pack.Type" xml:space="preserve">
     <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;cmb_DRRPVer.Parent" xml:space="preserve">
+  <data name="&gt;&gt;cmb_pack.Parent" xml:space="preserve">
     <value>groupBox2</value>
   </data>
-  <data name="&gt;&gt;cmb_DRRPVer.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;cmb_pack.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
   <data name="btn_openGZDoomFolder.Location" type="System.Drawing.Point, System.Drawing">
@@ -576,21 +576,6 @@
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lb_notes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 20</value>
-  </data>
-  <data name="lb_notes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="lb_notes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>288, 509</value>
-  </data>
-  <data name="lb_notes.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="lb_notes.Text" xml:space="preserve">
-    <value>Дата выпуска версии: </value>
-  </data>
   <data name="&gt;&gt;lb_notes.Name" xml:space="preserve">
     <value>lb_notes</value>
   </data>
@@ -634,6 +619,33 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="lb_notes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 20</value>
+  </data>
+  <data name="lb_notes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="lb_notes.Size" type="System.Drawing.Size, System.Drawing">
+    <value>280, 509</value>
+  </data>
+  <data name="lb_notes.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="lb_notes.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;lb_notes.Name" xml:space="preserve">
+    <value>lb_notes</value>
+  </data>
+  <data name="&gt;&gt;lb_notes.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lb_notes.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;lb_notes.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
