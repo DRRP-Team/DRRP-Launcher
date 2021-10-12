@@ -18,10 +18,11 @@ namespace DRRP_Launcher {
             config = new Config();
         }
         private void Window_Load(object sender, EventArgs e) {
-            initFolders();
             config.load();
+            initFolders();
             fetchConfig();
 
+            in_mainFolder.Text = config.config.folder;
             if (cmb_DRRPVer.SelectedIndex == -1) cmb_DRRPVer.SelectedIndex = 0;
             if (cmb_GZDoomLang.SelectedIndex == -1) cmb_GZDoomLang.SelectedIndex = 0;
             if (cmb_GZDoomVer.SelectedIndex == -1) cmb_GZDoomVer.SelectedIndex = 0;
@@ -32,15 +33,13 @@ namespace DRRP_Launcher {
         }
 
         private void initFolders() {
-            in_mainFolder.Text = config.config.folder;
-
             string[] folders = {
                 "DRRP",
                 "Engines"
             };
 
             foreach (string folder in folders) {
-                Directory.CreateDirectory(folder);
+                Directory.CreateDirectory(config.config.folder + @"\" + folder);
             }
         }
 
@@ -75,11 +74,11 @@ namespace DRRP_Launcher {
         }
 
         private void Btn_openDRRPFolder_Click(object sender, EventArgs e) {
-
+            System.Diagnostics.Process.Start("explorer.exe", config.config.folder + @"\DRRP");
         }
 
         private void Btn_openGZDoomFolder_Click(object sender, EventArgs e) {
-
+            System.Diagnostics.Process.Start("explorer.exe", config.config.folder + @"\Engines");
         }
     }
 }
