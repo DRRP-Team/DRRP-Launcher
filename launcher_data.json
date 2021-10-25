@@ -5,13 +5,13 @@
       "name": "DRRP v0.5.0 & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP v0.5.0",
-      "notes": "Release date:"
+      "notes": "Release date: 01.03.2021; Monsters sounds are broken on GZDoom < 4.6.0"
     },
     {
-      "name": "DRRP v0.4.0 & GZDoom v4.5.0",
-      "engine": "GZDoom 4.5.0",
+      "name": "DRRP v0.4.0 & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
       "drrp": "DRRP v0.4.0",
-      "notes": "Release date:"
+      "notes": "Release date: 13.04.2020; Doesn't work on GZDoom 4.4+"
     },
     {
       "name": "Nightly (Unstable) & GZDoom v4.7.1",
@@ -37,6 +37,12 @@
       "name": "GZDoom 4.5.0",
       "url": "https://zdoom.org/files/gzdoom/bin/gzdoom-4-5-0-Windows-64bit.zip",
       "foldername": "GZDoom450",
+      "binaryname":  "gzdoom"
+    },
+    {
+      "name": "GZDoom 4.3.3",
+      "url": "https://github.com/coelckers/gzdoom/releases/download/g4.3.3/gzdoom-4-3-3-Windows-64bit.zip",
+      "foldername": "GZDoom433",
       "binaryname":  "gzdoom"
     },
     {
