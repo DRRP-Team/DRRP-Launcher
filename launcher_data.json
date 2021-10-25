@@ -2,8 +2,8 @@
   "version": 1,
   "packs": [
     {
-      "name": "DRRP v0.5.0 & GZDoom v4.5.0",
-      "engine": "GZDoom 4.5.0",
+      "name": "DRRP v0.5.0 & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
       "drrp": "DRRP v0.5.0",
       "notes": "Release date:"
     },
@@ -14,8 +14,8 @@
       "notes": "Release date:"
     },
     {
-      "name": "Nightly (Unstable) & GZDoom v4.5.0",
-      "engine": "GZDoom 4.5.0",
+      "name": "Nightly (Unstable) & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
       "drrp": "DRRP Nightly",
       "notes": "Download unstable DRRP build from the master branch"
     },
@@ -27,6 +27,12 @@
     }
   ],
   "engines": [
+    {
+      "name": "GZDoom 4.7.1",
+      "url": "https://github.com/coelckers/gzdoom/releases/download/g4.7.1/gzdoom-4-7-1-Windows-64bit.zip",
+      "foldername": "GZDoom471",
+      "binaryname":  "gzdoom"
+    },
     {
       "name": "GZDoom 4.5.0",
       "url": "https://zdoom.org/files/gzdoom/bin/gzdoom-4-5-0-Windows-64bit.zip",
