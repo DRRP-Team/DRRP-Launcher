@@ -26,6 +26,24 @@
       "notes": "Release date: 06.04.2019, 11.04.2019\n\nChangelog:\n- Added RPG system\n- Upgrading player characteristics in the stores (Strength, Defense, Accuracy, Agility)\n- Now the dogs take all your damage.\n- Now the Axe blocks part of the damage\n- Rebalanced weapons and monsters\n- Notifications about killing all the monsters and finding all the secrets at the level\n- Correction of Russian translation for Entrance from Russian Doom Community\n- Added contextual tips (in the right-top corner)\n- Added reverb\n- Animation of door tunnels textures\n- New particles for the transformation and teleportation\n- New Cinematic Scenes (SEC6, XHUB)\n- New Axe sprite by Dez#1563 and PROPHESSOR\n- New Axe sounds, as well as its mechanics\n- Color correction and lighting improvements in SEC1 from @usernameak\n- Other minor innovations"
     },
     {
+      "name": "DRRP v0.2.2EAB & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.2.2EAB",
+      "notes": "Early Access Beta Version\nRelease date: 09.02.2019\n\nChangelog:\n- Added cinematic shaders, damage shaders and color correction shaders\n- Added English localization of voice messages\n- Added taking and returning weapons to SEC3 and SEC7\n- Added statistics window\n- Added earthquakes\n- Added the ability to turn off the Parallax Occlusion Mapping shader (volumetric textures)\n- Now the characters can dying\n- Added visualization of the transformations and deaths of the characters\n- More realistic opening of doors that require a keycard\n- Added new parameters in DRRP Menu\n- Cubic distortion added to helmet shader\n- Updated common Russifier"
+    },
+    {
+      "name": "DRRP v0.2.1EAB & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.2.1EAB",
+      "notes": "Early Access Beta Version\nRelease date: 09.01.2019\n\nChangelog:\n- Added compass\n- Added Russian localization of technical messages notebook\n- Added Russian obituaries\n- Fire extinguisher assigned to key 0\n- Changed the balance of weapons and monsters\n- Improved the scene of the invasion in SEC2\n- Easter egg from PROPHESSOR was added to one of the sectors."
+    },
+    {
+      "name": "DRRP v0.2.0EAB & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.2.0EAB",
+      "notes": "Early Access Beta Version\nRelease date: 01.01.2019\n\nChangelog:\n- Now all maps are playable\n- Now monsters see in all directions.\n- Added volumetric textures using Parallax Occlusion Mapping shader\n- Now all jammed doors open with an axe\n- Added dialogs on all maps\n- Added code locks on all maps\n- Improved StatusBar\n- Added player's maximum health upgrading in the store\n- Improved texture quality\n- Added Kronos\n- Repainted character sprites replaced with original ones\n- Other: many small innovations"
+    },
+    {
       "name": "Nightly (Unstable) & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP Nightly",
@@ -81,6 +99,24 @@
       "name": "DRRP v0.3.0b",
       "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.3.0b/DRRPv0.3.0b.pk3",
       "foldername": "DRRPv0.3.0b",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.2.2EAB",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.2.2EAB/DRRPv0.2.2EAB.pk3",
+      "foldername": "DRRPv0.2.2EAB",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.2.1EAB",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.2.1EAB/DRRPv0.2.1EAB.pk3",
+      "foldername": "DRRPv0.2.1EAB",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.2.0EAB",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.2.0EAB/DRRPv0.2.0EAB.pk3",
+      "foldername": "DRRPv0.2.0EAB",
       "force_download":  false
     },
     {
