@@ -20,12 +20,6 @@
       "notes": "Release date: 13.04.2020"
     },
     {
-      "name": "DRRP v0.4.0 & LZDoom v3.88a",
-      "engine": "LZDoom v3.88a",
-      "drrp": "DRRP v0.4.0",
-      "notes": "Release date: 13.04.2020\nUse this build if your PC doesn't support GZDoom\nDoesn't support Russian language"
-    },
-    {
       "name": "Nightly (Unstable) & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP Nightly",
