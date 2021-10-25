@@ -44,6 +44,12 @@
       "notes": "Early Access Beta Version\nRelease date: 01.01.2019\n\nChangelog:\n- Now all maps are playable\n- Now monsters see in all directions.\n- Added volumetric textures using Parallax Occlusion Mapping shader\n- Now all jammed doors open with an axe\n- Added dialogs on all maps\n- Added code locks on all maps\n- Improved StatusBar\n- Added player's maximum health upgrading in the store\n- Improved texture quality\n- Added Kronos\n- Repainted character sprites replaced with original ones\n- Other: many small innovations"
     },
     {
+      "name": "DRRP v0.1.0EAB & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.1.0EAB",
+      "notes": "Early Access Beta Version\nRelease date: 04.11.2018"
+    },
+    {
       "name": "Nightly (Unstable) & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP Nightly",
@@ -117,6 +123,12 @@
       "name": "DRRP v0.2.0EAB",
       "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.2.0EAB/DRRPv0.2.0EAB.pk3",
       "foldername": "DRRPv0.2.0EAB",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.1.0EAB",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.1.0EAB/DRRPv0.1.0EAB.pk3",
+      "foldername": "DRRPv0.1.0EAB",
       "force_download":  false
     },
     {
