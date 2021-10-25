@@ -5,19 +5,19 @@
       "name": "DRRP v0.5.0 & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP v0.5.0",
-      "notes": "Release date: 01.03.2021\nWARNING! Crashes on Statistics window"
+      "notes": "Release date: 01.03.2021\nWARNING! Crashes on Statistics window\n\nChangelog:\n- Floor and ceiling textures from BREW version- Reworked levels- Rebalance- Monster Vulnerabilities- Reworked drop from monsters- New Boss Fighting Arena- New monster mechanics- Animated textures- Animated sprites- Gibs on extra damage- Blood splashes on screen- Ability to erase symbols when typing a password- Performance parameters in DRRP Menu- Display of health and armor status by color on the HUD- New computer textures- Improved axe and fire extinguisher, as well as weapon response- Improved graphics- Many additional volumetric textures- Visual and gameplay improvements to maps- Updated LevelUp sound- Different sounds for monsters of different levels- Increased the number of ammo- ITEMS level- Improved monster colors- Added interactivity of death of characters- Other minor innovationsFixes:- Fixed many critical bugs leading to crashes- Fixed inability to close dialog on GZDoom 4.5.0- Fixed counting secrets- Fixed garbage on automaps- Pain Elemental should now better cope with maternal debt- Fixed many bugs on the maps- Fixed tons of textures offsets- Fixed some translations- Other minor fixes"
     },
     {
       "name": "DRRP v0.5.0 & LZDoom v3.88a",
       "engine": "LZDoom v3.88a",
       "drrp": "DRRP v0.5.0",
-      "notes": "Release date: 01.03.2021\nUse this build if your PC doesn't support GZDoom\nDoesn't support Russian language"
+      "notes": "Release date: 01.03.2021\nUse this build if your PC doesn't support GZDoom\nDoesn't support Russian language\n\nChangelog:\n- Support for GZDoom 4.0+- New SEC3 and SEC7 maps by StormCatcher.77- Ability to assign items quick using keybindings- Now monsters drop items- Player statistics window (level, kills, secrets, experience, etc.)- Many additional volumetric textures- New music during the invasion in SEC2- Graphic and gameplay map improvements- Rebalance weapons and monsters- When killing all monsters and finding secrets, experience and credits are given- The sound of crashing sinks and toilets- Sounds of breaking crates- Other minor innovationsFixes:- Fixed double level increase- Fixed invisible walls when shooting- Fixed many bugs on maps- Fixed revenant corpse in MonsterCast- Fixed translation of cartridges- Fixed some monster colors- Fixed notepad errors- Fixed lava sprite hanging in the air- Fixed some translations- Removed deprecated textures- Other minor fixes"
     },
     {
       "name": "DRRP v0.4.0 & GZDoom v4.3.3",
       "engine": "GZDoom 4.3.3",
       "drrp": "DRRP v0.4.0",
-      "notes": "Release date: 13.04.2020"
+      "notes": "Release date: 13.04.2020\n\nChangelog:\n- Support for GZDoom 4.0+- New SEC3 and SEC7 maps by StormCatcher.77- Ability to assign items quick using keybindings- Now monsters drop items- Player statistics window (level, kills, secrets, experience, etc.)- Many additional volumetric textures- New music during the invasion in SEC2- Graphic and gameplay map improvements- Rebalance weapons and monsters- When killing all monsters and finding secrets, experience and credits are given- The sound of crashing sinks and toilets- Sounds of breaking crates- Other minor innovationsFixes:- Fixed double level increase- Fixed invisible walls when shooting- Fixed many bugs on maps- Fixed revenant corpse in MonsterCast- Fixed translation of cartridges- Fixed some monster colors- Fixed notepad errors- Fixed lava sprite hanging in the air- Fixed some translations- Removed deprecated textures- Other minor fixes"
     },
     {
       "name": "Nightly (Unstable) & GZDoom v4.7.1",
