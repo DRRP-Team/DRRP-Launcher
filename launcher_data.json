@@ -5,25 +5,37 @@
       "name": "DRRP v0.5.0 & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP v0.5.0",
-      "notes": "Release date: 01.03.2021; Monsters sounds are broken on GZDoom < 4.6.0"
+      "notes": "Release date: 01.03.2021\nWARNING! Crashes on Statistics window"
+    },
+    {
+      "name": "DRRP v0.5.0 & LZDoom v3.88a",
+      "engine": "LZDoom v3.88a",
+      "drrp": "DRRP v0.5.0",
+      "notes": "Release date: 01.03.2021\nUse this build if your PC doesn't support GZDoom\nDoesn't support Russian language"
     },
     {
       "name": "DRRP v0.4.0 & GZDoom v4.3.3",
       "engine": "GZDoom 4.3.3",
       "drrp": "DRRP v0.4.0",
-      "notes": "Release date: 13.04.2020; Doesn't work on GZDoom 4.4+"
+      "notes": "Release date: 13.04.2020"
+    },
+    {
+      "name": "DRRP v0.4.0 & LZDoom v3.88a",
+      "engine": "LZDoom v3.88a",
+      "drrp": "DRRP v0.4.0",
+      "notes": "Release date: 13.04.2020\nUse this build if your PC doesn't support GZDoom\nDoesn't support Russian language"
     },
     {
       "name": "Nightly (Unstable) & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP Nightly",
-      "notes": "Download unstable DRRP build from the master branch"
+      "notes": "Download unstable DRRP build from the master branch and play with GZDoom"
     },
     {
       "name": "Nightly (Unstable) & LZDoom v3.88a",
       "engine": "LZDoom v3.88a",
       "drrp": "DRRP Nightly",
-      "notes": "Download unstable DRRP build from the master branch"
+      "notes": "Download unstable DRRP build from the master branch and play with LZDoom"
     }
   ],
   "engines": [
