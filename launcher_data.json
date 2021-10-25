@@ -56,6 +56,12 @@
       "notes": "The Earliest Git Commit\nDate: 09.09.2017\nIt is the first commit when we started to use Git :)"
     },
     {
+      "name": "Archive: DRRP v0.0.0 The First Version Ever & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.0.0TFVE",
+      "notes": "The First Version Ever\nDate: 07.07.2017\nThis is the first playable version even before we started to use Git :)"
+    },
+    {
       "name": "Nightly (Unstable) & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP Nightly",
@@ -141,6 +147,12 @@
       "name": "DRRP v0.0.0EGC",
       "url": "https://github.com/DRRP-Team/DRRP/archive/c572fa3d867b0766c6698acce9001ac75dc782da.zip",
       "foldername": "DRRPv0.0.0EGC",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.0.0TFVE",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.1.0EAB/DRRPv0.0.0TFVE.pk3",
+      "foldername": "DRRPv0.0.0TFVE",
       "force_download":  false
     },
     {
