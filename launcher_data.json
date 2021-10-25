@@ -20,6 +20,12 @@
       "notes": "Release date: 13.04.2020\n\nChangelog:\n- Support for GZDoom 4.0+\n- New SEC3 and SEC7 maps by StormCatcher.77\n- Ability to assign items quick using keybindings\n- Now monsters drop items\n- Player statistics window (level, kills, secrets, experience, etc.)\n- Many additional volumetric textures\n- New music during the invasion in SEC2\n- Graphic and gameplay map improvements\n- Rebalance weapons and monsters\n- When killing all monsters and finding secrets, experience and credits are given\n- The sound of crashing sinks and toilets\n- Sounds of breaking crates\n- Other minor innovations"
     },
     {
+      "name": "DRRP v0.3.0b & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.3.0b",
+      "notes": "Release date: 06.04.2019, 11.04.2019\n\nChangelog:\n- Added RPG system\n- Upgrading player characteristics in the stores (Strength, Defense, Accuracy, Agility)\n- Now the dogs take all your damage.\n- Now the Axe blocks part of the damage\n- Rebalanced weapons and monsters\n- Notifications about killing all the monsters and finding all the secrets at the level\n- Correction of Russian translation for Entrance from Russian Doom Community\n- Added contextual tips (in the right-top corner)\n- Added reverb\n- Animation of door tunnels textures\n- New particles for the transformation and teleportation\n- New Cinematic Scenes (SEC6, XHUB)\n- New Axe sprite by Dez#1563 and PROPHESSOR\n- New Axe sounds, as well as its mechanics\n- Color correction and lighting improvements in SEC1 from @usernameak\n- Other minor innovations"
+    },
+    {
       "name": "Nightly (Unstable) & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP Nightly",
@@ -69,6 +75,12 @@
       "name": "DRRP v0.4.0",
       "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.4.0/DRRPv0.4.0.pk3",
       "foldername": "DRRPv0.4.0",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.3.0b",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.3.0b/DRRPv0.3.0b.pk3",
+      "foldername": "DRRPv0.3.0b",
       "force_download":  false
     },
     {
