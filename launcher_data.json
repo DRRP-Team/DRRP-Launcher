@@ -72,6 +72,18 @@
       "engine": "LZDoom v3.88a",
       "drrp": "DRRP Nightly",
       "notes": "Download unstable DRRP build from the master branch and play with LZDoom"
+    },
+    {
+      "name": "Rebalance (Development build) & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
+      "drrp": "DRRP Dev Rebalance",
+      "notes": "Download development DRRP build from the rebalance branch and play with GZDoom"
+    },
+    {
+      "name": "Rebalance (Development build) & LZDoom v3.88a",
+      "engine": "LZDoom v3.88a",
+      "drrp": "DRRP Dev Rebalance",
+      "notes": "Download development DRRP build from the rebalance branch and play with LZDoom"
     }
   ],
   "engines": [
@@ -159,6 +171,12 @@
       "name": "DRRP Nightly",
       "url": "https://github.com/DRRP-Team/DRRP/archive/refs/heads/master.zip",
       "foldername": "DRRP_Master",
+      "force_download": true
+    },
+    {
+      "name": "DRRP Dev Rebalance",
+      "url": "https://github.com/DRRP-Team/DRRP/archive/refs/heads/rebalance.zip",
+      "foldername": "DRRP_Dev_Rebalance",
       "force_download": true
     }
   ]
