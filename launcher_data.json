@@ -2,29 +2,107 @@
   "version": 1,
   "packs": [
     {
-      "name": "DRRP v0.5.0 & GZDoom v4.5.0",
-      "engine": "GZDoom 4.5.0",
-      "drrp": "DRRP v0.4.0",
-      "notes": "Release date:"
+      "name": "DRRP v0.5.0 & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
+      "drrp": "DRRP v0.5.0",
+      "notes": "Release date: 01.03.2021\nWARNING! Crashes on Statistics window\n\nChangelog:\n- Floor and ceiling textures from BREW version\n- Reworked levels\n- Rebalance\n- Monster Vulnerabilities\n- Reworked drop from monsters\n- New Boss Fighting Arena\n- New monster mechanics\n- Animated textures\n- Animated sprites\n- Gibs on extra damage\n- Blood splashes on screen\n- Ability to erase symbols when typing a password\n- Performance parameters in DRRP Menu\n- Display of health and armor status by color on the HUD\n- New computer textures\n- Improved axe and fire extinguisher, as well as weapon response\n- Improved graphics\n- Many additional volumetric textures\n- Visual and gameplay improvements to maps\n- Updated LevelUp sound\n- Different sounds for monsters of different levels\n- Increased the number of ammo\n- ITEMS level\n- Improved monster colors\n- Added interactivity of death of characters\n- Other minor innovations"
     },
     {
-      "name": "Nightly (Unstable) & GZDoom v4.5.0",
-      "engine": "GZDoom 4.5.0",
+      "name": "DRRP v0.5.0 & LZDoom v3.88a",
+      "engine": "LZDoom v3.88a",
+      "drrp": "DRRP v0.5.0",
+      "notes": "Release date: 01.03.2021\nUse this build if your PC doesn't support GZDoom\nDoesn't support Russian language\n\nChangelog:\n- Floor and ceiling textures from BREW version\n- Reworked levels\n- Rebalance\n- Monster Vulnerabilities\n- Reworked drop from monsters\n- New Boss Fighting Arena\n- New monster mechanics\n- Animated textures\n- Animated sprites\n- Gibs on extra damage\n- Blood splashes on screen\n- Ability to erase symbols when typing a password\n- Performance parameters in DRRP Menu\n- Display of health and armor status by color on the HUD\n- New computer textures\n- Improved axe and fire extinguisher, as well as weapon response\n- Improved graphics\n- Many additional volumetric textures\n- Visual and gameplay improvements to maps\n- Updated LevelUp sound\n- Different sounds for monsters of different levels\n- Increased the number of ammo\n- ITEMS level\n- Improved monster colors\n- Added interactivity of death of characters\n- Other minor innovations"
+    },
+    {
+      "name": "DRRP v0.4.0 & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.4.0",
+      "notes": "Release date: 13.04.2020\n\nChangelog:\n- Support for GZDoom 4.0+\n- New SEC3 and SEC7 maps by StormCatcher.77\n- Ability to assign items quick using keybindings\n- Now monsters drop items\n- Player statistics window (level, kills, secrets, experience, etc.)\n- Many additional volumetric textures\n- New music during the invasion in SEC2\n- Graphic and gameplay map improvements\n- Rebalance weapons and monsters\n- When killing all monsters and finding secrets, experience and credits are given\n- The sound of crashing sinks and toilets\n- Sounds of breaking crates\n- Other minor innovations"
+    },
+    {
+      "name": "DRRP v0.3.0b & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.3.0b",
+      "notes": "Release date: 06.04.2019, 11.04.2019\n\nChangelog:\n- Added RPG system\n- Upgrading player characteristics in the stores (Strength, Defense, Accuracy, Agility)\n- Now the dogs take all your damage.\n- Now the Axe blocks part of the damage\n- Rebalanced weapons and monsters\n- Notifications about killing all the monsters and finding all the secrets at the level\n- Correction of Russian translation for Entrance from Russian Doom Community\n- Added contextual tips (in the right-top corner)\n- Added reverb\n- Animation of door tunnels textures\n- New particles for the transformation and teleportation\n- New Cinematic Scenes (SEC6, XHUB)\n- New Axe sprite by Dez#1563 and PROPHESSOR\n- New Axe sounds, as well as its mechanics\n- Color correction and lighting improvements in SEC1 from @usernameak\n- Other minor innovations"
+    },
+    {
+      "name": "DRRP v0.2.2EAB & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.2.2EAB",
+      "notes": "Early Access Beta Version\nRelease date: 09.02.2019\n\nChangelog:\n- Added cinematic shaders, damage shaders and color correction shaders\n- Added English localization of voice messages\n- Added taking and returning weapons to SEC3 and SEC7\n- Added statistics window\n- Added earthquakes\n- Added the ability to turn off the Parallax Occlusion Mapping shader (volumetric textures)\n- Now the characters can dying\n- Added visualization of the transformations and deaths of the characters\n- More realistic opening of doors that require a keycard\n- Added new parameters in DRRP Menu\n- Cubic distortion added to helmet shader\n- Updated common Russifier"
+    },
+    {
+      "name": "DRRP v0.2.1EAB & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.2.1EAB",
+      "notes": "Early Access Beta Version\nRelease date: 09.01.2019\n\nChangelog:\n- Added compass\n- Added Russian localization of technical messages notebook\n- Added Russian obituaries\n- Fire extinguisher assigned to key 0\n- Changed the balance of weapons and monsters\n- Improved the scene of the invasion in SEC2\n- Easter egg from PROPHESSOR was added to one of the sectors."
+    },
+    {
+      "name": "DRRP v0.2.0EAB & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.2.0EAB",
+      "notes": "Early Access Beta Version\nRelease date: 01.01.2019\n\nChangelog:\n- Now all maps are playable\n- Now monsters see in all directions.\n- Added volumetric textures using Parallax Occlusion Mapping shader\n- Now all jammed doors open with an axe\n- Added dialogs on all maps\n- Added code locks on all maps\n- Improved StatusBar\n- Added player's maximum health upgrading in the store\n- Improved texture quality\n- Added Kronos\n- Repainted character sprites replaced with original ones\n- Other: many small innovations"
+    },
+    {
+      "name": "DRRP v0.1.0EAB & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.1.0EAB",
+      "notes": "Early Access Beta Version\nRelease date: 04.11.2018"
+    },
+    {
+      "name": "Archive: DRRP v0.0.0 The Earliest Git Commit & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.0.0EGC",
+      "notes": "The Earliest Git Commit\nDate: 09.09.2017\nIt is the first commit when we started to use Git :)"
+    },
+    {
+      "name": "Archive: DRRP v0.0.0 The First Version Ever & GZDoom v4.3.3",
+      "engine": "GZDoom 4.3.3",
+      "drrp": "DRRP v0.0.0TFVE",
+      "notes": "The First Version Ever\nDate: 07.07.2017\nThis is the first playable version even before we started to use Git :)"
+    },
+    {
+      "name": "Nightly (Unstable) & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
       "drrp": "DRRP Nightly",
-      "notes": "Download unstable DRRP build from the master branch"
+      "notes": "Download unstable DRRP build from the master branch and play with GZDoom"
     },
     {
       "name": "Nightly (Unstable) & LZDoom v3.88a",
       "engine": "LZDoom v3.88a",
       "drrp": "DRRP Nightly",
-      "notes": "Download unstable DRRP build from the master branch"
+      "notes": "Download unstable DRRP build from the master branch and play with LZDoom"
+    },
+    {
+      "name": "Rebalance (Development build) & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
+      "drrp": "DRRP Dev Rebalance",
+      "notes": "Download development DRRP build from the rebalance branch and play with GZDoom"
+    },
+    {
+      "name": "Rebalance (Development build) & LZDoom v3.88a",
+      "engine": "LZDoom v3.88a",
+      "drrp": "DRRP Dev Rebalance",
+      "notes": "Download development DRRP build from the rebalance branch and play with LZDoom"
     }
   ],
   "engines": [
     {
+      "name": "GZDoom 4.7.1",
+      "url": "https://github.com/coelckers/gzdoom/releases/download/g4.7.1/gzdoom-4-7-1-Windows-64bit.zip",
+      "foldername": "GZDoom471",
+      "binaryname":  "gzdoom"
+    },
+    {
       "name": "GZDoom 4.5.0",
       "url": "https://zdoom.org/files/gzdoom/bin/gzdoom-4-5-0-Windows-64bit.zip",
       "foldername": "GZDoom450",
+      "binaryname":  "gzdoom"
+    },
+    {
+      "name": "GZDoom 4.3.3",
+      "url": "https://github.com/coelckers/gzdoom/releases/download/g4.3.3/gzdoom-4-3-3-Windows-64bit.zip",
+      "foldername": "GZDoom433",
       "binaryname":  "gzdoom"
     },
     {
@@ -36,15 +114,69 @@
   ],
   "drrp_versions": [
     {
+      "name": "DRRP v0.5.0",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.5.0/DRRPv0.5.0.pk3",
+      "foldername": "DRRPv0.5.0",
+      "force_download":  false
+    },
+    {
       "name": "DRRP v0.4.0",
       "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.4.0/DRRPv0.4.0.pk3",
       "foldername": "DRRPv0.4.0",
       "force_download":  false
     },
     {
+      "name": "DRRP v0.3.0b",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.3.0b/DRRPv0.3.0b.pk3",
+      "foldername": "DRRPv0.3.0b",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.2.2EAB",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.2.2EAB/DRRPv0.2.2EAB.pk3",
+      "foldername": "DRRPv0.2.2EAB",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.2.1EAB",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.2.1EAB/DRRPv0.2.1EAB.pk3",
+      "foldername": "DRRPv0.2.1EAB",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.2.0EAB",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.2.0EAB/DRRPv0.2.0EAB.pk3",
+      "foldername": "DRRPv0.2.0EAB",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.1.0EAB",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.1.0EAB/DRRPv0.1.0EAB.pk3",
+      "foldername": "DRRPv0.1.0EAB",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.0.0EGC",
+      "url": "https://github.com/DRRP-Team/DRRP/archive/c572fa3d867b0766c6698acce9001ac75dc782da.zip",
+      "foldername": "DRRPv0.0.0EGC",
+      "force_download":  false
+    },
+    {
+      "name": "DRRP v0.0.0TFVE",
+      "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.1.0EAB/DRRPv0.0.0TFVE.pk3",
+      "foldername": "DRRPv0.0.0TFVE",
+      "force_download":  false
+    },
+    {
       "name": "DRRP Nightly",
       "url": "https://github.com/DRRP-Team/DRRP/archive/refs/heads/master.zip",
       "foldername": "DRRP_Master",
+      "force_download": true
+    },
+    {
+      "name": "DRRP Dev Rebalance",
+      "url": "https://github.com/DRRP-Team/DRRP/archive/refs/heads/rebalance.zip",
+      "foldername": "DRRP_Dev_Rebalance",
       "force_download": true
     }
   ]
