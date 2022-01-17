@@ -267,6 +267,7 @@ namespace DRRP_Launcher {
 
         private void run_launch() {
             Enabled = false;
+            Update();
             progressBar.Value = 100;
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
             EngineVersion engineVersion = gzdoom_versions[pack.engine];
