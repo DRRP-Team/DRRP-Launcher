@@ -25,11 +25,14 @@
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Window));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.in_mainFolder = new System.Windows.Forms.TextBox();
             this.in_args = new System.Windows.Forms.TextBox();
             this.btn_changeMainFolder = new System.Windows.Forms.Button();
+            this.btn_openDRRPFolder = new System.Windows.Forms.Button();
+            this.btn_openGZDoomFolder = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cmb_language = new System.Windows.Forms.ComboBox();
@@ -38,13 +41,10 @@
             this.lb_RunStatus = new System.Windows.Forms.Label();
             this.btn_run = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.btn_openDRRPFolder = new System.Windows.Forms.Button();
             this.cmb_pack = new System.Windows.Forms.ComboBox();
-            this.btn_openGZDoomFolder = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lb_notes = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -65,6 +65,12 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // label4
+            // 
+            resources.ApplyResources(this.label4, "label4");
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Name = "label4";
             // 
             // label3
             // 
@@ -103,6 +109,24 @@
             this.btn_changeMainFolder.Name = "btn_changeMainFolder";
             this.btn_changeMainFolder.UseVisualStyleBackColor = false;
             this.btn_changeMainFolder.Click += new System.EventHandler(this.Btn_changeMainFolder_Click);
+            // 
+            // btn_openDRRPFolder
+            // 
+            this.btn_openDRRPFolder.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.btn_openDRRPFolder, "btn_openDRRPFolder");
+            this.btn_openDRRPFolder.ForeColor = System.Drawing.Color.Gray;
+            this.btn_openDRRPFolder.Name = "btn_openDRRPFolder";
+            this.btn_openDRRPFolder.UseVisualStyleBackColor = true;
+            this.btn_openDRRPFolder.Click += new System.EventHandler(this.Btn_openDRRPFolder_Click);
+            // 
+            // btn_openGZDoomFolder
+            // 
+            this.btn_openGZDoomFolder.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
+            resources.ApplyResources(this.btn_openGZDoomFolder, "btn_openGZDoomFolder");
+            this.btn_openGZDoomFolder.ForeColor = System.Drawing.Color.Gray;
+            this.btn_openGZDoomFolder.Name = "btn_openGZDoomFolder";
+            this.btn_openGZDoomFolder.UseVisualStyleBackColor = true;
+            this.btn_openGZDoomFolder.Click += new System.EventHandler(this.Btn_openGZDoomFolder_Click);
             // 
             // groupBox2
             // 
@@ -169,15 +193,6 @@
             resources.ApplyResources(this.progressBar, "progressBar");
             this.progressBar.Name = "progressBar";
             // 
-            // btn_openDRRPFolder
-            // 
-            this.btn_openDRRPFolder.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            resources.ApplyResources(this.btn_openDRRPFolder, "btn_openDRRPFolder");
-            this.btn_openDRRPFolder.ForeColor = System.Drawing.Color.Gray;
-            this.btn_openDRRPFolder.Name = "btn_openDRRPFolder";
-            this.btn_openDRRPFolder.UseVisualStyleBackColor = true;
-            this.btn_openDRRPFolder.Click += new System.EventHandler(this.Btn_openDRRPFolder_Click);
-            // 
             // cmb_pack
             // 
             this.cmb_pack.BackColor = System.Drawing.Color.Black;
@@ -186,15 +201,6 @@
             this.cmb_pack.ForeColor = System.Drawing.Color.Red;
             this.cmb_pack.Name = "cmb_pack";
             this.cmb_pack.SelectedIndexChanged += new System.EventHandler(this.Cmb_pack_SelectedIndexChanged);
-            // 
-            // btn_openGZDoomFolder
-            // 
-            this.btn_openGZDoomFolder.FlatAppearance.BorderColor = System.Drawing.Color.Gray;
-            resources.ApplyResources(this.btn_openGZDoomFolder, "btn_openGZDoomFolder");
-            this.btn_openGZDoomFolder.ForeColor = System.Drawing.Color.Gray;
-            this.btn_openGZDoomFolder.Name = "btn_openGZDoomFolder";
-            this.btn_openGZDoomFolder.UseVisualStyleBackColor = true;
-            this.btn_openGZDoomFolder.Click += new System.EventHandler(this.Btn_openGZDoomFolder_Click);
             // 
             // groupBox4
             // 
@@ -222,12 +228,6 @@
             resources.ApplyResources(this.textBox1, "textBox1");
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            // 
-            // label4
-            // 
-            resources.ApplyResources(this.label4, "label4");
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Name = "label4";
             // 
             // Window
             // 

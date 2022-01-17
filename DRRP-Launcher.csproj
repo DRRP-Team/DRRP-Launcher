@@ -22,7 +22,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -80,12 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Config.cs" />
-    <Compile Include="CustomTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomTextBox.Designer.cs">
-      <DependentUpon>CustomTextBox.cs</DependentUpon>
-    </Compile>
     <Compile Include="Internet.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
