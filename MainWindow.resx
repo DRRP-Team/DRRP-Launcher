@@ -122,12 +122,42 @@
     <value>None</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, -1</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 17</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Advanced options</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label3.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 84</value>
+    <value>8, 120</value>
   </data>
   <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -151,13 +181,16 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
+  </data>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 28</value>
+    <value>8, 64</value>
   </data>
   <data name="label1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
@@ -181,10 +214,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
+  </data>
+  <data name="in_mainFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="in_mainFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 49</value>
+    <value>8, 85</value>
   </data>
   <data name="in_mainFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -205,10 +241,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;in_mainFolder.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
+  </data>
+  <data name="in_args.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
   </data>
   <data name="in_args.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 105</value>
+    <value>8, 141</value>
   </data>
   <data name="in_args.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -229,16 +268,25 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;in_args.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
+  </data>
+  <data name="btn_changeMainFolder.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="btn_changeMainFolder.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_changeMainFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btn_changeMainFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>346, 47</value>
+    <value>346, 82</value>
   </data>
   <data name="btn_changeMainFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
+    <value>0, 0, 0, 0</value>
   </data>
   <data name="btn_changeMainFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>100, 25</value>
+    <value>100, 29</value>
   </data>
   <data name="btn_changeMainFolder.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -256,10 +304,76 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;btn_changeMainFolder.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btn_openDRRPFolder.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_openDRRPFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_openDRRPFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 28</value>
+  </data>
+  <data name="btn_openDRRPFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btn_openDRRPFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>205, 28</value>
+  </data>
+  <data name="btn_openDRRPFolder.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
+  <data name="btn_openDRRPFolder.Text" xml:space="preserve">
+    <value>Open DRRP folder</value>
+  </data>
+  <data name="&gt;&gt;btn_openDRRPFolder.Name" xml:space="preserve">
+    <value>btn_openDRRPFolder</value>
+  </data>
+  <data name="&gt;&gt;btn_openDRRPFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_openDRRPFolder.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_openDRRPFolder.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btn_openGZDoomFolder.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_openGZDoomFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btn_openGZDoomFolder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>231, 28</value>
+  </data>
+  <data name="btn_openGZDoomFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btn_openGZDoomFolder.Size" type="System.Drawing.Size, System.Drawing">
+    <value>215, 28</value>
+  </data>
+  <data name="btn_openGZDoomFolder.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btn_openGZDoomFolder.Text" xml:space="preserve">
+    <value>Open Engine folder</value>
+  </data>
+  <data name="&gt;&gt;btn_openGZDoomFolder.Name" xml:space="preserve">
+    <value>btn_openGZDoomFolder</value>
+  </data>
+  <data name="&gt;&gt;btn_openGZDoomFolder.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_openGZDoomFolder.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;btn_openGZDoomFolder.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 384</value>
+    <value>11, 348</value>
   </data>
   <data name="groupBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -268,13 +382,13 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 141</value>
+    <value>454, 177</value>
   </data>
   <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
   <data name="groupBox1.Text" xml:space="preserve">
-    <value>Advanced</value>
+    <value>Advanced options</value>
   </data>
   <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
     <value>groupBox1</value>
@@ -286,11 +400,17 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>7</value>
   </data>
   <metadata name="folderBrowserDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="cmb_language.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="cmb_language.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
   <data name="cmb_language.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -301,13 +421,13 @@
     <value>Русский</value>
   </data>
   <data name="cmb_language.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 38</value>
+    <value>11, 46</value>
   </data>
   <data name="cmb_language.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="cmb_language.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 24</value>
+    <value>454, 33</value>
   </data>
   <data name="cmb_language.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -327,14 +447,17 @@
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label2.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
+  </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 66</value>
+    <value>8, 86</value>
   </data>
   <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>85, 17</value>
+    <value>120, 25</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -352,10 +475,13 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="label6.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -367,7 +493,7 @@
     <value>4, 0, 4, 0</value>
   </data>
   <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>114, 17</value>
+    <value>159, 25</value>
   </data>
   <data name="label6.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -385,10 +511,13 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
+  </data>
+  <data name="lb_RunStatus.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="lb_RunStatus.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 286</value>
+    <value>9, 311</value>
   </data>
   <data name="lb_RunStatus.Size" type="System.Drawing.Size, System.Drawing">
     <value>457, 23</value>
@@ -412,10 +541,22 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;lb_RunStatus.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
+  </data>
+  <data name="btn_run.AccessibleDescription" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="btn_run.AccessibleName" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="btn_run.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="btn_run.Font" type="System.Drawing.Font, System.Drawing">
+    <value>DooM, 18pt, style=Bold</value>
   </data>
   <data name="btn_run.Location" type="System.Drawing.Point, System.Drawing">
-    <value>106, 153</value>
+    <value>106, 166</value>
   </data>
   <data name="btn_run.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -439,16 +580,19 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;btn_run.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="progressBar.Location" type="System.Drawing.Point, System.Drawing">
     <value>11, 312</value>
   </data>
   <data name="progressBar.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 29</value>
+    <value>27, 29</value>
   </data>
   <data name="progressBar.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
+  </data>
+  <data name="progressBar.Visible" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="&gt;&gt;progressBar.Name" xml:space="preserve">
     <value>progressBar</value>
@@ -460,49 +604,25 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;progressBar.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
-  <data name="btn_openDRRPFolder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="cmb_pack.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
   </data>
-  <data name="btn_openDRRPFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 348</value>
-  </data>
-  <data name="btn_openDRRPFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btn_openDRRPFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>205, 28</value>
-  </data>
-  <data name="btn_openDRRPFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btn_openDRRPFolder.Text" xml:space="preserve">
-    <value>Open DRRP folder</value>
-  </data>
-  <data name="&gt;&gt;btn_openDRRPFolder.Name" xml:space="preserve">
-    <value>btn_openDRRPFolder</value>
-  </data>
-  <data name="&gt;&gt;btn_openDRRPFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_openDRRPFolder.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;btn_openDRRPFolder.ZOrder" xml:space="preserve">
-    <value>7</value>
+  <data name="cmb_pack.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 12pt</value>
   </data>
   <data name="cmb_pack.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="cmb_pack.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 87</value>
+    <value>11, 116</value>
   </data>
   <data name="cmb_pack.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
   <data name="cmb_pack.Size" type="System.Drawing.Size, System.Drawing">
-    <value>454, 24</value>
+    <value>454, 33</value>
   </data>
   <data name="cmb_pack.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -517,34 +637,7 @@
     <value>groupBox2</value>
   </data>
   <data name="&gt;&gt;cmb_pack.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="btn_openGZDoomFolder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>250, 348</value>
-  </data>
-  <data name="btn_openGZDoomFolder.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btn_openGZDoomFolder.Size" type="System.Drawing.Size, System.Drawing">
-    <value>215, 28</value>
-  </data>
-  <data name="btn_openGZDoomFolder.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btn_openGZDoomFolder.Text" xml:space="preserve">
-    <value>Open Engine folder</value>
-  </data>
-  <data name="&gt;&gt;btn_openGZDoomFolder.Name" xml:space="preserve">
-    <value>btn_openGZDoomFolder</value>
-  </data>
-  <data name="&gt;&gt;btn_openGZDoomFolder.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btn_openGZDoomFolder.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;btn_openGZDoomFolder.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>6</value>
   </data>
   <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
     <value>13, 13</value>
@@ -573,17 +666,23 @@
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="lb_notes.Location" type="System.Drawing.Point, System.Drawing">
-    <value>8, 20</value>
+  <data name="lb_notes.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10pt</value>
   </data>
-  <data name="lb_notes.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
+  <data name="lb_notes.Location" type="System.Drawing.Point, System.Drawing">
+    <value>8, 17</value>
+  </data>
+  <data name="lb_notes.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lb_notes.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
   </data>
   <data name="lb_notes.Size" type="System.Drawing.Size, System.Drawing">
-    <value>280, 509</value>
+    <value>309, 504</value>
   </data>
   <data name="lb_notes.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="lb_notes.Text" xml:space="preserve">
     <value>...</value>
@@ -592,13 +691,37 @@
     <value>lb_notes</value>
   </data>
   <data name="&gt;&gt;lb_notes.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;lb_notes.Parent" xml:space="preserve">
     <value>groupBox4</value>
   </data>
   <data name="&gt;&gt;lb_notes.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="textBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 17</value>
+  </data>
+  <data name="textBox1.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="textBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 504</value>
+  </data>
+  <data name="textBox1.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Name" xml:space="preserve">
+    <value>textBox1</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;textBox1.Parent" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;textBox1.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="groupBox4.Location" type="System.Drawing.Point, System.Drawing">
     <value>497, 13</value>
@@ -633,8 +756,14 @@
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>25</value>
+  </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>8, 16</value>
+  </data>
+  <data name="$this.BackgroundImageLayout" type="System.Windows.Forms.ImageLayout, System.Windows.Forms">
+    <value>Stretch</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>806, 559</value>
@@ -649,7 +778,7 @@
     <value>824, 606</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>Doom RPG Remake Project Launcher v2.0.0</value>
+    <value>Doom RPG Remake Project Launcher v2.0.1</value>
   </data>
   <data name="&gt;&gt;folderBrowserDialog1.Name" xml:space="preserve">
     <value>folderBrowserDialog1</value>

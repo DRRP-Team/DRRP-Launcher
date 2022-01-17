@@ -9,6 +9,7 @@ using System.Net;
 using System.Text;
 using System.Resources;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DRRP_Launcher {
     public partial class Window : Form {
@@ -265,6 +266,7 @@ namespace DRRP_Launcher {
         }
 
         private void run_launch() {
+            Enabled = false;
             progressBar.Value = 100;
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
             EngineVersion engineVersion = gzdoom_versions[pack.engine];
@@ -273,6 +275,7 @@ namespace DRRP_Launcher {
             if (!engine.Exists) {
                 MessageBox.Show("Error! Engine binary was removed before running. Try again.", $"{engineVersion.binaryname}.exe not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //MessageBox.Show("Ошибка! Файл порта был удалён перед попыткой запуска. Попробуйте ещё раз.", "gzdoom.exe не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Enabled = true;
                 return;
             }
 
@@ -281,6 +284,7 @@ namespace DRRP_Launcher {
             if (!doom2wad.Exists) {
                 MessageBox.Show("Error! File doom2.wad was removed before running. Try again.", "doom2.wad not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //MessageBox.Show("Ошибка! Файл doom2.wad был удалён перед попыткой запуска. Попробуйте ещё раз.", "doom2.wad не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Enabled = true;
                 return;
             }
 
@@ -290,6 +294,7 @@ namespace DRRP_Launcher {
             if (!drrpfilepk3.Exists) {
                 MessageBox.Show("Error! DRRP package was removed before running. Try again.", "pk3 file not found", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //MessageBox.Show("Ошибка! Файл мода был удалён перед попыткой запуска. Попробуйте ещё раз.", "pk3 файл не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Enabled = true;
                 return;
             }
 
@@ -304,7 +309,9 @@ namespace DRRP_Launcher {
                 in_args.Text
             };
 
-            System.Diagnostics.Process.Start(engine.FullName, String.Join(" ", args));
+            System.Diagnostics.Process a = System.Diagnostics.Process.Start(engine.FullName, String.Join(" ", args));
+            a.WaitForExit();
+            Enabled = true;
         }
 
         private void status(string text) {
@@ -331,7 +338,7 @@ namespace DRRP_Launcher {
 
         private void Cmb_pack_SelectedIndexChanged(object sender, EventArgs e) {
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
-            lb_notes.Text = pack.notes;
+            lb_notes.Lines = pack.notes.Split('\n');
             config.config.selected_pack = pack.name;
             config.save();
         }
