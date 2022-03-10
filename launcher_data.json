@@ -84,6 +84,12 @@
       "engine": "LZDoom v3.88a",
       "drrp": "DRRP Dev Rebalance",
       "notes": "Download development DRRP build from the rebalance branch and play with LZDoom"
+    },
+    {
+      "name": "Russian Localization Fix (Development build) & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
+      "drrp": "DRRP Dev Localize",
+      "notes": "Download development DRRP build from the amonlocalize branch and play with GZDoom"
     }
   ],
   "engines": [
@@ -177,6 +183,12 @@
       "name": "DRRP Dev Rebalance",
       "url": "https://github.com/DRRP-Team/DRRP/archive/refs/heads/rebalance.zip",
       "foldername": "DRRP_Dev_Rebalance",
+      "force_download": true
+    },
+    {
+      "name": "DRRP Dev Localize",
+      "url": "https://github.com/DRRP-Team/DRRP/archive/refs/heads/amonlocalize.zip",
+      "foldername": "DRRP_Dev_Lokalize",
       "force_download": true
     }
   ]
