@@ -12,13 +12,13 @@ using System.Windows.Forms;
 using System.Drawing;
 
 namespace DRRP_Launcher {
-    public partial class Window : Form {
+    public partial class Form1 : Form {
         private Dictionary<string, DrrpVersion> drrp_versions = new Dictionary<string, DrrpVersion>();
         private Dictionary<string, EngineVersion> gzdoom_versions = new Dictionary<string, EngineVersion>();
         private Dictionary<string, Pack> packs = new Dictionary<string, Pack>();
         private Config config;
 
-        public Window() {
+        public Form1() {
             InitializeComponent();
             config = new Config();
         }
