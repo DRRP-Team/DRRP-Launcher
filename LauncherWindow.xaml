@@ -4,16 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DRRP_Launcher"
-        MinHeight="574"
-        Width="802"
-        MaxWidth="802"
-        MinWidth="802"
-        Height="574"
-        MaxHeight="574"
-        MouseDown="Button_MouseDown"
-        Cursor=""
+        Width="793"
+        Height="500"
         mc:Ignorable="d"
-        Title="Doom RPG Remake Project Launcher v3.0.0" Foreground="{DynamicResource TextColor}" WindowStyle="None">
+        Title="Doom RPG Remake Project Launcher v3.0.0"
+        Foreground="{DynamicResource TextColor}"
+        ResizeMode="NoResize"
+        WindowStyle="None">
     <Window.Background>
         <ImageBrush ImageSource="Resources\DRRP_REAC_.jpg" AlignmentX="Right"></ImageBrush>
     </Window.Background>
@@ -237,7 +234,7 @@
             <Button Style="{StaticResource DRRPPlayButton}" Content="Play" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="181" Height="97" Margin="141,0,140.4,22.2" FontFamily="DooM" FontSize="24" BorderThickness="2">
             </Button>
         </GroupBox>
-        <Label Content="Select language:" HorizontalAlignment="Left" Margin="17,53,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="455" FontSize="22" FontFamily="{DynamicResource Font1}" FontStretch="Expanded"/>
+        <Label Content="Select language:" HorizontalAlignment="Left" Margin="17,53,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="455" FontSize="22" FontStretch="Expanded" FontFamily="{DynamicResource Font1}"/>
         <Label Content="Select pack:" HorizontalAlignment="Left" Margin="18,107,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="454" FontSize="22" FontFamily="{DynamicResource Font1}"/>
         <ComboBox HorizontalAlignment="Left" Margin="20,85,0,0" VerticalAlignment="Top" Width="454"/>
         <ComboBox HorizontalAlignment="Left" Margin="20,140,0,0" VerticalAlignment="Top" Width="454" />
@@ -251,8 +248,8 @@
         <Label Content="Additional command line args:" HorizontalAlignment="Left" Margin="19,413,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextGray}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="20,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="454" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextTextBox}"/>
         <TextBox BorderThickness="0" Focusable="False" IsReadOnly="True" HorizontalAlignment="Left" Height="415" Margin="498,53,0,0" TextWrapping="Wrap" Text="sdfsd&#xA;fsd&#xA;f&#xA;sdf&#xA;&#xA;sd&#xA;f&#xA;sd&#xA;f&#xA;s&#xA;d&#xA;&#xA;fd&#xA;f&#xA;s&#xA;df&#xA;s&#xA;df&#xA;s&#xA;df&#xA;s&#xA;df&#xA;s&#xA;df&#xA;s&#xA;df&#xA;sfd&#xA;Раз два три&#xA;sdf&#xA;s&#xA;df&#xA;s&#xA;dfs&#xA;f&#xA;ds&#xA;f&#xA;sd&#xA;fs&#xA;df&#xA;s&#xA;df&#xA;sfd&#xA;s&#xA;fs&#xA;df&#xA;s&#xA;fd&#xA;sfd" VerticalAlignment="Top" Width="278" Foreground="{DynamicResource TextColor}" BorderBrush="#00000000" Background="Transparent" FontFamily="{DynamicResource Font1}" FontSize="18" FontStretch="Expanded"/>
-        <Label Padding="10 3 0 0" Content="DRRP Launcher v3.0.0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="795" Background="#7F000000" Height="26" BorderBrush="Black" BorderThickness="0,0,0,2"/>
-        <Button  Style="{StaticResource DRRPPanelButton}" Click="BtnCloseWindow_Click" Content="×" HorizontalAlignment="Left" Margin="725,0,0,0" VerticalAlignment="Top" Width="57" FontFamily="Monospace" Height="26" BorderBrush="{x:Null}" FontSize="24"/>
+        <Label MouseDown="Button_MouseDown" Cursor="ScrollAll" Padding="12 5 0 0" Content="DRRP Launcher v3.0.0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="793" Background="#7F000000" Height="27" BorderBrush="Black" BorderThickness="0,0,0,2" Margin="0,0,-0.2,0"/>
+        <Button Style="{StaticResource DRRPPanelButton}" Click="BtnCloseWindow_Click" Content="×" HorizontalAlignment="Left" Margin="725,0,0,0" VerticalAlignment="Top" Width="57" Height="26" BorderBrush="{x:Null}" FontSize="22" FontFamily="Tw Cen MT Condensed"/>
 
     </Grid>
 </Window>
