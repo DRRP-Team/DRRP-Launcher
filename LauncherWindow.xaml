@@ -5,13 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DRRP_Launcher"
         mc:Ignorable="d"
-        Title="Doom RPG Remake Project Launcher v3.0.0" Height="494.533" Width="802" Foreground="{DynamicResource ColorScheme}">
+        Title="Doom RPG Remake Project Launcher v3.0.0" Height="507.333" Width="802" Foreground="{DynamicResource TextColor}">
     <Window.Background>
-        <ImageBrush ImageSource="Resources\DRRP_REAC_.jpg"></ImageBrush>
+        <ImageBrush ImageSource="Resources\DRRP_REAC_.jpg" AlignmentX="Right"></ImageBrush>
     </Window.Background>
     <Window.Resources>
         <SolidColorBrush x:Key="ComboBoxBackground" Color="#7F000000"/>
 
+        <Style x:Key="DRRPButton">
+            <Setter Property="Button.Background" Value="#BF000000" />
+            <Setter Property="Button.Foreground" Value="{DynamicResource TextColor}" />
+            <Setter Property="Button.Cursor" Value="Hand"/>
+            <Setter Property="Button.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Gray" BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="Button.IsMouseOver" Value="True">
+                    <Setter Property="Button.Background" Value="#BF000000" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="DRRPPlayButton" BasedOn="{StaticResource DRRPButton}">
+            <Setter Property="Button.Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="Orange" BorderThickness="2">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- ComboBox -->
         <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -21,7 +54,7 @@
                 <Border
                   x:Name="Border" 
                   Grid.ColumnSpan="2"
-                  CornerRadius="0"
+                  CornerRadius="2"
                   Background="{StaticResource ComboBoxBackground}"
                   BorderBrush="#FF97A0A5"
                   BorderThickness="1" />
@@ -177,24 +210,24 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <GroupBox Header="Select pack and press &quot;Play&quot;" HorizontalAlignment="Left" Height="305" Margin="10,10,0,0" Background="{DynamicResource Overlay}" VerticalAlignment="Top" Width="475">
-            <Button Content="Play" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="181" Height="97" Margin="141,0,140.4,5.2" FontFamily="DooM" Foreground="{DynamicResource ColorScheme}" Background="#BF000000" BorderBrush="Red" FontSize="24" BorderThickness="2"/>
+        <GroupBox Header="Select pack and press &quot;Play&quot;" HorizontalAlignment="Left" Height="305" Margin="10,10,0,0" Background="{DynamicResource Overlay}" VerticalAlignment="Top" Width="475" BorderBrush="{x:Null}" BorderThickness="1">
+            <Button Style="{StaticResource DRRPPlayButton}" Content="Play" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="181" Height="97" Margin="141,0,140.4,22.2" FontFamily="DooM" FontSize="24" BorderThickness="2">
+            </Button>
         </GroupBox>
-        <Label Content="Select language:" HorizontalAlignment="Left" Margin="17,32,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" Width="455" FontSize="22" FontFamily="{DynamicResource Font1}" FontStretch="Expanded"/>
-        <Label Content="Select pack:" HorizontalAlignment="Left" Margin="18,86,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" Width="454" FontSize="22" FontFamily="{DynamicResource Font1}"/>
+        <Label Content="Select language:" HorizontalAlignment="Left" Margin="17,32,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="455" FontSize="22" FontFamily="{DynamicResource Font1}" FontStretch="Expanded"/>
+        <Label Content="Select pack:" HorizontalAlignment="Left" Margin="18,86,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="454" FontSize="22" FontFamily="{DynamicResource Font1}"/>
         <ComboBox HorizontalAlignment="Left" Margin="20,64,0,0" VerticalAlignment="Top" Width="454"/>
         <ComboBox HorizontalAlignment="Left" Margin="20,119,0,0" VerticalAlignment="Top" Width="454" />
-        <Label Content='Press "Play":' HorizontalAlignment="Left" Margin="19,141,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" FontSize="22" Width="453" FontFamily="{DynamicResource Font1}"/>
-        <GroupBox Header="Information about the pack" HorizontalAlignment="Left" Height="443" Margin="490,10,0,0" VerticalAlignment="Top" Width="295" Background="{DynamicResource Overlay}"/>
-        <GroupBox Header="Advanced options" HorizontalAlignment="Left" Height="133" Margin="10,320,0,0" VerticalAlignment="Top" Width="475" Background="{DynamicResource Overlay}">
-        </GroupBox>
-        <Label Content="Installation folder:" HorizontalAlignment="Left" Margin="19,340,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="84,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Background="{DynamicResource Overlay}" Foreground="{DynamicResource ColorScheme}"/>
-        <Button Content="Open" HorizontalAlignment="Left" Margin="19,367,0,0" VerticalAlignment="Top" Width="60" Height="23" Background="{DynamicResource Overlay}" Foreground="{DynamicResource ColorScheme}"/>
-        <Button Content="Change" HorizontalAlignment="Left" Margin="399,367,0,0" VerticalAlignment="Top" Width="75" Height="23" Foreground="{DynamicResource ColorScheme}" Background="{DynamicResource Overlay}"/>
-        <Label Content="Additional command line args:" HorizontalAlignment="Left" Margin="19,392,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="20,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="454" Background="{DynamicResource Overlay}" Foreground="{DynamicResource ColorScheme}"/>
-        <TextBox HorizontalAlignment="Left" Height="415" Margin="498,32,0,0" TextWrapping="Wrap" Text="sdfsd&#xD;&#xA;fsd&#xD;&#xA;f&#xD;&#xA;sdf&#xD;&#xA;&#xD;&#xA;sd&#xD;&#xA;f&#xD;&#xA;sd&#xD;&#xA;f&#xD;&#xA;s&#xD;&#xA;d&#xD;&#xA;&#xD;&#xA;fd&#xD;&#xA;f&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;sfd&#xD;&#xA;&#xD;&#xA;sdf&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;dfs&#xD;&#xA;f&#xD;&#xA;ds&#xD;&#xA;f&#xD;&#xA;sd&#xD;&#xA;fs&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;sfd&#xD;&#xA;s&#xD;&#xA;fs&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;fd&#xD;&#xA;sfd" VerticalAlignment="Top" Width="278" Background="{DynamicResource Overlay}" Foreground="{DynamicResource ColorScheme}" BorderBrush="#00000000"/>
+        <Label Content='Press "Play":' HorizontalAlignment="Left" Margin="19,141,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" FontSize="22" Width="453" FontFamily="{DynamicResource Font1}"/>
+        <GroupBox Header="Information about the pack" HorizontalAlignment="Left" Height="443" Margin="490,10,0,0" VerticalAlignment="Top" Width="295" BorderBrush="{x:Null}" Foreground="{DynamicResource TextColor}" Background="#BF000000"/>
+        <GroupBox Header="Advanced options" HorizontalAlignment="Left" Height="133" Margin="10,320,0,0" VerticalAlignment="Top" Width="475" Background="{DynamicResource Overlay}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextGray}"/>
+        <Label Content="Installation folder:" HorizontalAlignment="Left" Margin="19,340,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextGray}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
+        <TextBox IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="95,370,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextTextBox}"/>
+        <Button Style="{StaticResource DRRPButton}" Content="Open" HorizontalAlignment="Left" Margin="19,370,0,0" VerticalAlignment="Top" Width="71" Height="23" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextGray}"/>
+        <Button Style="{StaticResource DRRPButton}" Content="Change" HorizontalAlignment="Left" Margin="399,370,0,0" VerticalAlignment="Top" Width="75" Height="23" Foreground="{DynamicResource TextGray}" Background="{DynamicResource Overlay}"/>
+        <Label Content="Additional command line args:" HorizontalAlignment="Left" Margin="19,392,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextGray}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="20,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="454" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextTextBox}"/>
+        <TextBox BorderThickness="0" Focusable="False" IsReadOnly="True" HorizontalAlignment="Left" Height="415" Margin="498,32,0,0" TextWrapping="Wrap" Text="sdfsd&#xA;fsd&#xA;f&#xA;sdf&#xA;&#xA;sd&#xA;f&#xA;sd&#xA;f&#xA;s&#xA;d&#xA;&#xA;fd&#xA;f&#xA;s&#xA;df&#xA;s&#xA;df&#xA;s&#xA;df&#xA;s&#xA;df&#xA;s&#xA;df&#xA;s&#xA;df&#xA;sfd&#xA;Раз два три&#xA;sdf&#xA;s&#xA;df&#xA;s&#xA;dfs&#xA;f&#xA;ds&#xA;f&#xA;sd&#xA;fs&#xA;df&#xA;s&#xA;df&#xA;sfd&#xA;s&#xA;fs&#xA;df&#xA;s&#xA;fd&#xA;sfd" VerticalAlignment="Top" Width="278" Foreground="{DynamicResource TextColor}" BorderBrush="#00000000" Background="Transparent" FontFamily="{DynamicResource Font1}" FontSize="18" FontStretch="Expanded"/>
 
     </Grid>
 </Window>
