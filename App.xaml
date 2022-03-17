@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:DRRP_Launcher_WPF"
              StartupUri="LauncherWindow.xaml">
     <Application.Resources>
-         
+
+        <SolidColorBrush x:Key="ColorScheme" Color="White"/>
+        <SolidColorBrush x:Key="Overlay" Color="#3F000000"/>
+        <FontFamily x:Key="Font1">Smooch Sans</FontFamily>
+
     </Application.Resources>
 </Application>

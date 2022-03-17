@@ -5,11 +5,196 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DRRP_Launcher"
         mc:Ignorable="d"
-        Title="Doom RPG Remake Project Launcher v3.0.0" Height="606" Width="802">
+        Title="Doom RPG Remake Project Launcher v3.0.0" Height="494.533" Width="802" Foreground="{DynamicResource ColorScheme}">
     <Window.Background>
         <ImageBrush ImageSource="Resources\DRRP_REAC_.jpg"></ImageBrush>
     </Window.Background>
+    <Window.Resources>
+        <SolidColorBrush x:Key="ComboBoxBackground" Color="#7F000000"/>
+
+        <ControlTemplate x:Key="ComboBoxToggleButton" TargetType="{x:Type ToggleButton}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+                <Border
+                  x:Name="Border" 
+                  Grid.ColumnSpan="2"
+                  CornerRadius="0"
+                  Background="{StaticResource ComboBoxBackground}"
+                  BorderBrush="#FF97A0A5"
+                  BorderThickness="1" />
+                <Border 
+                  Grid.Column="0"
+                  CornerRadius="0" 
+                  Margin="1" 
+                  Background="{StaticResource ComboBoxBackground}" 
+                  BorderBrush="#FF97A0A5"
+                  BorderThickness="0,0,1,0" />
+                <Path 
+                  x:Name="Arrow"
+                  Grid.Column="1"     
+                  Fill="White"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Data="M0,0 L0,2 L4,6 L8,2 L8,0 L4,4 z"
+                />
+            </Grid>
+            <!--<ControlTemplate.Triggers>
+            <Trigger Property="ToggleButton.IsMouseOver" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="#808080" />
+            </Trigger>
+            <Trigger Property="ToggleButton.IsChecked" Value="true">
+                <Setter TargetName="Border" Property="Background" Value="#E0E0E0" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter TargetName="Border" Property="Background" Value="#EEEEEE" />
+                <Setter TargetName="Border" Property="BorderBrush" Value="#AAAAAA" />
+                <Setter Property="Foreground" Value="#888888"/>
+                <Setter TargetName="Arrow" Property="Fill" Value="#888888" />
+            </Trigger>
+        </ControlTemplate.Triggers>-->
+        </ControlTemplate>
+
+        <ControlTemplate x:Key="ComboBoxTextBox" TargetType="{x:Type TextBox}">
+            <Border x:Name="PART_ContentHost" Focusable="False" Background="{TemplateBinding Background}" />
+        </ControlTemplate>
+
+        <Style x:Key="{x:Type ComboBox}" TargetType="{x:Type ComboBox}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+            <Setter Property="MinWidth" Value="120"/>
+            <Setter Property="MinHeight" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBox}">
+                        <Grid>
+                            <ToggleButton 
+                            Name="ToggleButton" 
+                            Template="{StaticResource ComboBoxToggleButton}" 
+                            Grid.Column="2" 
+                            Focusable="false"
+                            IsChecked="{Binding Path=IsDropDownOpen,Mode=TwoWay,RelativeSource={RelativeSource TemplatedParent}}"
+                            ClickMode="Press">
+                            </ToggleButton>
+                            <ContentPresenter Name="ContentSite" IsHitTestVisible="False"  Content="{TemplateBinding SelectionBoxItem}"
+                            ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
+                            ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                            Margin="3,3,23,3"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left" />
+                            <TextBox x:Name="PART_EditableTextBox"
+                            Style="{x:Null}" 
+                            Template="{StaticResource ComboBoxTextBox}" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Center" 
+                            Margin="3,3,23,3"
+                            Focusable="True" 
+                            Background="{StaticResource ComboBoxBackground}"
+                            Foreground="Green"
+                            Visibility="Hidden"
+                            IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            <Popup 
+                            Name="Popup"
+                            Placement="Bottom"
+                            IsOpen="{TemplateBinding IsDropDownOpen}"
+                            AllowsTransparency="True" 
+                            Focusable="False"
+                            PopupAnimation="Slide">
+
+                                <Grid Name="DropDown"
+                              SnapsToDevicePixels="True"                
+                              MinWidth="{TemplateBinding ActualWidth}"
+                              MaxHeight="{TemplateBinding MaxDropDownHeight}">
+                                    <Border 
+                                x:Name="DropDownBorder"
+                                Background="{StaticResource ComboBoxBackground}"
+
+                                BorderThickness="1"
+                                BorderBrush="#888888"/>
+                                    <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
+                                        <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
+                                </Grid>
+                            </Popup>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="HasItems" Value="false">
+                                <Setter TargetName="DropDownBorder" Property="MinHeight" Value="95"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                            <Trigger Property="IsGrouping" Value="true">
+                                <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                            </Trigger>
+                            <Trigger SourceName="Popup" Property="Popup.AllowsTransparency" Value="true">
+                                <Setter TargetName="DropDownBorder" Property="CornerRadius" Value="0"/>
+                                <Setter TargetName="DropDownBorder" Property="Margin" Value="0,2,0,0"/>
+                            </Trigger>
+                            <Trigger Property="IsEditable"  Value="true">
+                                <Setter Property="IsTabStop" Value="false"/>
+                                <Setter TargetName="PART_EditableTextBox" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="ContentSite" Property="Visibility" Value="Hidden"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+            </Style.Triggers>
+        </Style>
+
+        <!-- SimpleStyles: ComboBoxItem -->
+        <Style x:Key="{x:Type ComboBoxItem}" TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                        <Border Name="Border"
+                              Padding="2"
+                              SnapsToDevicePixels="true">
+                            <ContentPresenter />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsHighlighted" Value="true">
+                                <Setter TargetName="Border" Property="Background" Value="#FF4F4F4F"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="#888888"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <GroupBox Header="Select pack and press &quot;Play&quot;" HorizontalAlignment="Left" Height="305" Margin="10,10,0,0" Background="{DynamicResource Overlay}" VerticalAlignment="Top" Width="475">
+            <Button Content="Play" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="181" Height="97" Margin="141,0,140.4,5.2" FontFamily="DooM" Foreground="{DynamicResource ColorScheme}" Background="#BF000000" BorderBrush="Red" FontSize="24" BorderThickness="2"/>
+        </GroupBox>
+        <Label Content="Select language:" HorizontalAlignment="Left" Margin="17,32,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" Width="455" FontSize="22" FontFamily="{DynamicResource Font1}" FontStretch="Expanded"/>
+        <Label Content="Select pack:" HorizontalAlignment="Left" Margin="18,86,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" Width="454" FontSize="22" FontFamily="{DynamicResource Font1}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="20,64,0,0" VerticalAlignment="Top" Width="454"/>
+        <ComboBox HorizontalAlignment="Left" Margin="20,119,0,0" VerticalAlignment="Top" Width="454" />
+        <Label Content='Press "Play":' HorizontalAlignment="Left" Margin="19,141,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" FontSize="22" Width="453" FontFamily="{DynamicResource Font1}"/>
+        <GroupBox Header="Information about the pack" HorizontalAlignment="Left" Height="443" Margin="490,10,0,0" VerticalAlignment="Top" Width="295" Background="{DynamicResource Overlay}"/>
+        <GroupBox Header="Advanced options" HorizontalAlignment="Left" Height="133" Margin="10,320,0,0" VerticalAlignment="Top" Width="475" Background="{DynamicResource Overlay}">
+        </GroupBox>
+        <Label Content="Installation folder:" HorizontalAlignment="Left" Margin="19,340,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="84,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Background="{DynamicResource Overlay}" Foreground="{DynamicResource ColorScheme}"/>
+        <Button Content="Open" HorizontalAlignment="Left" Margin="19,367,0,0" VerticalAlignment="Top" Width="60" Height="23" Background="{DynamicResource Overlay}" Foreground="{DynamicResource ColorScheme}"/>
+        <Button Content="Change" HorizontalAlignment="Left" Margin="399,367,0,0" VerticalAlignment="Top" Width="75" Height="23" Foreground="{DynamicResource ColorScheme}" Background="{DynamicResource Overlay}"/>
+        <Label Content="Additional command line args:" HorizontalAlignment="Left" Margin="19,392,0,0" VerticalAlignment="Top" Foreground="{DynamicResource ColorScheme}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="20,418,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="454" Background="{DynamicResource Overlay}" Foreground="{DynamicResource ColorScheme}"/>
+        <TextBox HorizontalAlignment="Left" Height="415" Margin="498,32,0,0" TextWrapping="Wrap" Text="sdfsd&#xD;&#xA;fsd&#xD;&#xA;f&#xD;&#xA;sdf&#xD;&#xA;&#xD;&#xA;sd&#xD;&#xA;f&#xD;&#xA;sd&#xD;&#xA;f&#xD;&#xA;s&#xD;&#xA;d&#xD;&#xA;&#xD;&#xA;fd&#xD;&#xA;f&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;sfd&#xD;&#xA;&#xD;&#xA;sdf&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;dfs&#xD;&#xA;f&#xD;&#xA;ds&#xD;&#xA;f&#xD;&#xA;sd&#xD;&#xA;fs&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;df&#xD;&#xA;sfd&#xD;&#xA;s&#xD;&#xA;fs&#xD;&#xA;df&#xD;&#xA;s&#xD;&#xA;fd&#xD;&#xA;sfd" VerticalAlignment="Top" Width="278" Background="{DynamicResource Overlay}" Foreground="{DynamicResource ColorScheme}" BorderBrush="#00000000"/>
+
     </Grid>
 </Window>
