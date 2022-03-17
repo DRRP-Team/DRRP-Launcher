@@ -20,5 +20,13 @@ namespace DRRP_Launcher
         public LauncherWindow() {
             InitializeComponent();
         }
+
+        private void BtnCloseWindow_Click(object sender, RoutedEventArgs e) {
+            Close();
+        }
+
+        private void Button_MouseDown(object sender, MouseButtonEventArgs e) {
+            DragMove();
+        }
     }
 }
