@@ -7,6 +7,7 @@ using Alienlab.Zip;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 
 namespace DRRP_Launcher
 {
@@ -127,7 +128,8 @@ namespace DRRP_Launcher
             System.Diagnostics.Process.Start("explorer.exe", System.IO.Path.Combine(config.config.folder, "Engines"));
         }
 
-        private void Btn_run_Click(object sender, EventArgs e) {
+        private async void Btn_run_Click(object sender, EventArgs e) {
+            IsEnabled = false;
             //progressBar.Value = 0;
             status("Preparing to launch...");
             //status("Подготовка к запуску...");
@@ -141,20 +143,24 @@ namespace DRRP_Launcher
             config.config.additional_args = in_args.Text;
             config.save();
 
-            run_InstallEngine();
+            try {
 
-            run_InstallDoom2();
+                if (!await run_InstallEngine()) return;
 
-            run_InstallDrrp();
+                if (!await run_InstallDoom2()) return;
 
-            run_InstallConfig();
+                if (!await run_InstallDrrp()) return;
 
-            // status("Настройка..."); // TODO: Download GZDoom config
+                if (!await run_InstallConfig()) return;
 
-            run_launch();
+                if (!await run_launch()) return;
+
+            } finally {
+                IsEnabled = true;
+            }
         }
 
-        private void run_InstallEngine() {
+        private async Task<bool> run_InstallEngine() {
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
             EngineVersion version = gzdoom_versions[pack.engine];
             DirectoryInfo extractDir = new DirectoryInfo(System.IO.Path.Combine(config.config.folder, "Engines", version.foldername));
@@ -162,7 +168,7 @@ namespace DRRP_Launcher
             if (extractDir.Exists) {
                 status($"{version.name} is already installed.");
                 //status($"{version.name} уже установлен.");
-                return;
+                return true;
             }
 
             //progressBar.Value = 0;
@@ -175,7 +181,7 @@ namespace DRRP_Launcher
             ClearDirectory(downloadDir);
 
             using (var client = new WebClient()) {
-                client.DownloadFile(version.url, System.IO.Path.Combine(downloadDir.FullName, "Engine.zip"));
+                await client.DownloadFileTaskAsync(version.url, System.IO.Path.Combine(downloadDir.FullName, "Engine.zip"));
             }
 
             //progressBar.Value = 50;
@@ -194,6 +200,8 @@ namespace DRRP_Launcher
             //progressBar.Value = 100;
             status($"{version.name} installed successfully!");
             //status($"{version.name} успешно установлен!");
+
+            return true;
         }
 
         private void ClearDirectory(DirectoryInfo directory) {
@@ -201,7 +209,7 @@ namespace DRRP_Launcher
             foreach (DirectoryInfo subDirectory in directory.GetDirectories()) subDirectory.Delete(true);
         }
 
-        private void run_InstallDrrp() {
+        private async Task<bool> run_InstallDrrp() {
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
             DrrpVersion version = drrp_versions[pack.drrp];
             FileInfo drrpfilepk3 = new FileInfo(System.IO.Path.Combine(config.config.folder, "DRRP", version.foldername + ".pk3"));
@@ -209,7 +217,7 @@ namespace DRRP_Launcher
             if (drrpfilepk3.Exists && !version.forceDownload) {
                 status($"{version.name} is already installed.");
                 //status($"{version.name} уже установлен.");
-                return;
+                return true;
             }
 
             //progressBar.Value = 0;
@@ -218,21 +226,23 @@ namespace DRRP_Launcher
             //status($"Скачивание {version.name}...");
 
             using (var client = new WebClient()) {
-                client.DownloadFile(version.url, drrpfilepk3.FullName);
+                await client.DownloadFileTaskAsync(version.url, drrpfilepk3.FullName);
             }
 
             //progressBar.Value = 100;
             status($"{version.name} installed successfully!");
             //status($"{version.name} успешно установлен!");
+
+            return true;
         }
 
-        private void run_InstallDoom2() {
+        private async Task<bool> run_InstallDoom2() {
             FileInfo doom2wad = new FileInfo(System.IO.Path.Combine(config.config.folder, "Global", "doom2.wad"));
 
             if (doom2wad.Exists) {
                 status("doom2.wad is already installed.");
                 //status("doom2.wad уже установлен.");
-                return;
+                return true;
             }
 
             //progressBar.Value = 0;
@@ -243,22 +253,24 @@ namespace DRRP_Launcher
             string url = "https://github.com/Akbar30Bill/DOOM_wads/raw/master/doom2.wad";
 
             using (var client = new WebClient()) {
-                client.DownloadFile(url, doom2wad.FullName);
+                await client.DownloadFileTaskAsync(url, doom2wad.FullName);
             }
 
             //progressBar.Value = 100;
             status("doom2.wad is already installed!");
             //status("doom2.wad успешно установлен!");
+
+            return true;
         }
 
-        private void run_InstallConfig()
+        private async Task<bool> run_InstallConfig()
         {
             FileInfo gameconfig = new FileInfo(System.IO.Path.Combine(config.config.folder, "Global", "config.ini"));
 
             if (gameconfig.Exists) {
                 status("config.ini already exists.");
                 //status("doom2.wad уже установлен.");
-                return;
+                return true;
             }
 
             //progressBar.Value = 0;
@@ -269,16 +281,17 @@ namespace DRRP_Launcher
             string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/config_default.ini";
 
             using (var client = new WebClient()) {
-                client.DownloadFile(url, gameconfig.FullName);
+                await client.DownloadFileTaskAsync(url, gameconfig.FullName);
             }
 
             //progressBar.Value = 100;
             status("config.ini installed successfully!");
             //status("doom2.wad успешно установлен!");
+
+            return true;
         }
 
-        private void run_launch() {
-            IsEnabled = false;
+        private Task<bool> run_launch() {
             //Update();
             //progressBar.Value = 100;
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
@@ -288,8 +301,7 @@ namespace DRRP_Launcher
             if (!engine.Exists) {
                 System.Windows.Forms.MessageBox.Show("Error! Engine binary was removed before running. Try again.", $"{engineVersion.binaryname}.exe not found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 //MessageBox.Show("Ошибка! Файл порта был удалён перед попыткой запуска. Попробуйте ещё раз.", "gzdoom.exe не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IsEnabled = true;
-                return;
+                return Task.FromResult(false);
             }
 
             FileInfo doom2wad = new FileInfo(System.IO.Path.Combine(config.config.folder, "Global", "doom2.wad"));
@@ -297,8 +309,7 @@ namespace DRRP_Launcher
             if (!doom2wad.Exists) {
                 System.Windows.Forms.MessageBox.Show("Error! File doom2.wad was removed before running. Try again.", "doom2.wad not found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 //MessageBox.Show("Ошибка! Файл doom2.wad был удалён перед попыткой запуска. Попробуйте ещё раз.", "doom2.wad не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IsEnabled = true;
-                return;
+                return Task.FromResult(false);
             }
 
             DrrpVersion drrpVersion = drrp_versions[pack.drrp];
@@ -307,12 +318,13 @@ namespace DRRP_Launcher
             if (!drrpfilepk3.Exists) {
                 System.Windows.Forms.MessageBox.Show("Error! DRRP package was removed before running. Try again.", "pk3 file not found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 //MessageBox.Show("Ошибка! Файл мода был удалён перед попыткой запуска. Попробуйте ещё раз.", "pk3 файл не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                IsEnabled = true;
-                return;
+                return Task.FromResult(false);
             }
 
             status($"Starting {pack.name}...");
             //status($"Запуск {engineVersion.name} с {drrpVersion.name}...");
+
+            DateTime startTime = DateTime.Now;
 
             string[] args = {
                 "-iwad", doom2wad.FullName,
@@ -326,10 +338,14 @@ namespace DRRP_Launcher
 
             System.Diagnostics.Process a = System.Diagnostics.Process.Start(engine.FullName, String.Join(" ", args));
             a.WaitForExit();
-            status("");
+            DateTime endTime = DateTime.Now;
+            TimeSpan duration = endTime - startTime;
+
+            status($"You've played for {duration.Hours} hours, {duration.Minutes} minutes, {duration.Seconds} seconds");
             WindowState = WindowState.Normal;
-            IsEnabled = true;
             Activate();
+
+            return Task.FromResult(true);
         }
 
         private void status(string text) {
