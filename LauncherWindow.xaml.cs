@@ -327,9 +327,9 @@ namespace DRRP_Launcher
             DateTime startTime = DateTime.Now;
 
             string[] args = {
-                "-iwad", doom2wad.FullName,
-                "-file", drrpfilepk3.FullName,
-                "-config", System.IO.Path.Combine(config.config.folder, "Global", "config.ini"),
+                "-iwad", $"\"{doom2wad.FullName}\"",
+                "-file", $"\"{drrpfilepk3.FullName}\"",
+                "-config", $"\"{System.IO.Path.Combine(config.config.folder, "Global", "config.ini")}\"",
                 "+language", cmb_language.SelectedIndex == 1 ? "ru" : "en",
                 in_args.Text
             };
