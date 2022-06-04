@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using Newtonsoft.Json;
 
 
@@ -10,6 +8,8 @@ namespace DRRP_Launcher {
 
         public string selected_pack { get; set; }
         public string selected_language { get; set; }
+        public int selected_performance { get; set; } // 0 - ugly, 1 - low, 2 - normal, 3 - high, 4 - ultra, 5 - custom
+
         public string additional_args { get; set; }
 
         public string folder { get; set; }
@@ -22,9 +22,10 @@ namespace DRRP_Launcher {
 
         public Config() {
             config = new IConfig();
-            config.version = 1;
+            config.version = 2;
             config.selected_pack = "";
             config.selected_language = "English";
+            config.selected_performance = 3;
             config.additional_args = "";
             config.folder = Directory.GetCurrentDirectory();
         }

@@ -20,6 +20,9 @@ namespace DRRP_Launcher
         private Dictionary<string, EngineVersion> gzdoom_versions = new Dictionary<string, EngineVersion>();
         private Dictionary<string, Pack> packs = new Dictionary<string, Pack>();
         private Config config = new Config();
+
+        private JObject launcherConfig;
+
         public LauncherWindow() {
             InitializeComponent();
         }
@@ -40,8 +43,15 @@ namespace DRRP_Launcher
             in_mainFolder.Text = config.config.folder;
             in_args.Text = config.config.additional_args;
 
+            cmb_performance.Items.Add("Ugly");
+            cmb_performance.Items.Add("Low");
+            cmb_performance.Items.Add("Normal");
+            cmb_performance.Items.Add("High");
+            cmb_performance.Items.Add("Custom (do not change config)");
+
             cmb_pack.SelectedIndex = cmb_pack.Items.IndexOf(config.config.selected_pack);
             cmb_language.SelectedIndex = cmb_language.Items.IndexOf(config.config.selected_language);
+            cmb_performance.SelectedIndex = config.config.selected_performance;
 
             if (cmb_pack.SelectedIndex == -1) cmb_pack.SelectedIndex = 0;
             if (cmb_language.SelectedIndex == -1) cmb_language.SelectedIndex = 0;
@@ -66,21 +76,20 @@ namespace DRRP_Launcher
 
         private void fetchConfig() {
             const string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json";
-            JObject data;
 
             const string lastLoadedConfigFilename = "last_loaded_launcher_data.json";
 
             try {
-                data = Internet.GetJsonObject(url);
+                launcherConfig = Internet.GetJsonObject(url);
 
                 StreamWriter file = File.CreateText(lastLoadedConfigFilename);
-                file.Write(JsonConvert.SerializeObject(data));
+                file.Write(JsonConvert.SerializeObject(launcherConfig));
                 file.Close();
             } catch (Exception e) {
                 // Try to load previous config
                 if (File.Exists(lastLoadedConfigFilename)) {
                     StreamReader file = File.OpenText(lastLoadedConfigFilename);
-                    data = JsonConvert.DeserializeObject<JObject>(file.ReadToEnd());
+                    launcherConfig = JsonConvert.DeserializeObject<JObject>(file.ReadToEnd());
                     file.Close();
                 } else {
                     // If there's no config, notify that launcher requires internet connection
@@ -89,8 +98,10 @@ namespace DRRP_Launcher
                     return;
                 }
             }
+
+            var data = launcherConfig;
             
-            if ((int)data["version"] > 1) {
+            if ((int)data["version"] > 2) {
                 MessageBox.Show("Update your launcher to continue.");
                 //MessageBox.Show("Информация по версиям пришла для более поздней версии лаунчера! Пожалуйста, обновите ваш лаунчер.");
                 return;
@@ -125,8 +136,7 @@ namespace DRRP_Launcher
 
             var confpacks = (JArray)data["packs"];
 
-            foreach (var pack in confpacks)
-            {
+            foreach (var pack in confpacks) {
                 cmb_pack.Items.Add(pack["name"].ToString());
                 packs.Add(
                     pack["name"].ToString(),
@@ -347,6 +357,9 @@ namespace DRRP_Launcher
             status($"Starting {pack.name}...");
             //status($"Запуск {engineVersion.name} с {drrpVersion.name}...");
 
+            var performanceSettings = (JArray)launcherConfig["performances"];
+            string performanceArgs = performanceSettings[cmb_performance.SelectedIndex].ToString();
+
             DateTime startTime = DateTime.Now;
 
             string[] args = {
@@ -354,6 +367,7 @@ namespace DRRP_Launcher
                 "-file", $"\"{drrpfilepk3.FullName}\"",
                 "-config", $"\"{System.IO.Path.Combine(config.config.folder, "Global", "config.ini")}\"",
                 "+language", cmb_language.SelectedIndex == 1 ? "ru" : "en",
+                performanceArgs,
                 in_args.Text
             };
 

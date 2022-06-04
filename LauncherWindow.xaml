@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DRRP_Launcher"
-        Width="793"
-        Height="500"
+        Width="800"
+        Height="600"
         mc:Ignorable="d"
         Title="Doom RPG Remake Project Launcher v3.0.0"
         Foreground="{DynamicResource TextColor}"
@@ -231,30 +231,32 @@
 
 
     <Grid>
-        <GroupBox Header="Select pack and press &quot;Play&quot;" HorizontalAlignment="Left" Height="305" Margin="10,31,0,0" Background="{DynamicResource Overlay}" VerticalAlignment="Top" Width="475" BorderBrush="{x:Null}" BorderThickness="1">
-            <Button Click="Btn_run_Click" Style="{StaticResource DRRPPlayButton}" Content="Play" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="181" Height="97" Margin="141,0,140.4,31.4" FontFamily="DooM" FontSize="24" BorderThickness="2">
+        <GroupBox Header="Select pack and press &quot;Play&quot;" HorizontalAlignment="Left" Height="393" Margin="10,31,0,0" Background="{DynamicResource Overlay}" VerticalAlignment="Top" Width="475" BorderBrush="{x:Null}" BorderThickness="1">
+            <Button Click="Btn_run_Click" Style="{StaticResource DRRPPlayButton}" Content="Play" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="181" Height="97" Margin="140,0,141.4,27.4" FontFamily="DooM" FontSize="24" BorderThickness="2">
             </Button>
         </GroupBox>
-        <Label Content="Select language:" HorizontalAlignment="Left" Margin="17,53,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="455" FontSize="22" FontStretch="Expanded" FontFamily="{DynamicResource Font1}"/>
-        <Label Content="Select pack:" HorizontalAlignment="Left" Margin="18,111,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="454" FontSize="22" FontFamily="{DynamicResource Font1}"/>
-        <ComboBox SelectionChanged="Cmb_GZDoomLang_SelectedIndexChanged" Name="cmb_language" HorizontalAlignment="Left" Margin="20,85,0,0" VerticalAlignment="Top" Width="454" FontSize="16">
+        <Label Content="Select language:" HorizontalAlignment="Left" Margin="17,55,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="455" FontSize="22" FontStretch="Expanded" FontFamily="{DynamicResource Font1}"/>
+        <Label Content="Select pack:" HorizontalAlignment="Left" Margin="18,118,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="454" FontSize="22" FontFamily="{DynamicResource Font1}"/>
+        <ComboBox SelectionChanged="Cmb_GZDoomLang_SelectedIndexChanged" Name="cmb_language" HorizontalAlignment="Left" Margin="20,87,0,0" VerticalAlignment="Top" Width="454" FontSize="16">
             <ComboBoxItem Content="English"/>
             <ComboBoxItem Content="Русский"/>
         </ComboBox>
-        <ComboBox SelectionChanged="Cmb_pack_SelectedIndexChanged" Name="cmb_pack" HorizontalAlignment="Left" Margin="20,143,0,0" VerticalAlignment="Top" Width="454" FontSize="16" />
-        <Label Content='Press "Play":' HorizontalAlignment="Left" Margin="19,167,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" FontSize="22" Width="453" FontFamily="{DynamicResource Font1}"/>
-        <GroupBox Header="Information about the pack" HorizontalAlignment="Left" Height="443" Margin="490,31,0,0" VerticalAlignment="Top" Width="295" BorderBrush="{x:Null}" Foreground="{DynamicResource TextColor}" Background="#BF000000"/>
-        <GroupBox Header="Advanced options" HorizontalAlignment="Left" Height="133" Margin="10,341,0,0" VerticalAlignment="Top" Width="475" Background="{DynamicResource Overlay}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextGray}"/>
-        <Label Content="Installation folder:" HorizontalAlignment="Left" Margin="19,361,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextGray}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
-        <TextBox Name="in_mainFolder" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="95,391,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextGray}"/>
-        <Button Click="Btn_openBaseFolder_Click" Style="{StaticResource DRRPButton}" Content="Open" HorizontalAlignment="Left" Margin="19,391,0,0" VerticalAlignment="Top" Width="71" Height="23" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextGray}"/>
-        <Button Click="Btn_changeMainFolder_Click" Style="{StaticResource DRRPButton}" Content="Change" HorizontalAlignment="Left" Margin="399,391,0,0" VerticalAlignment="Top" Width="75" Height="23" Foreground="{DynamicResource TextGray}" Background="{DynamicResource Overlay}"/>
-        <Label Content="Additional command line args:" HorizontalAlignment="Left" Margin="19,413,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextGray}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
-        <TextBox Name="in_args" HorizontalAlignment="Left" Height="23" Margin="20,439,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="454" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextGray}"/>
-        <TextBox Name="lb_notes" BorderThickness="0" Focusable="False" IsReadOnly="True" HorizontalAlignment="Left" Height="415" Margin="498,53,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="278" Foreground="{DynamicResource TextColor}" BorderBrush="#00000000" Background="Transparent" FontFamily="{DynamicResource Font1}" FontSize="18" FontStretch="Expanded"/>
-        <Label MouseDown="Button_MouseDown" Cursor="ScrollAll" Padding="12 5 0 0" Content="DRRP Launcher v3.0.0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="793" Background="#7F000000" Height="27" BorderBrush="Black" BorderThickness="0,0,0,2" Margin="0,0,-0.2,0"/>
-        <Button Name="btn_close" Style="{StaticResource DRRPPanelButton}" Click="BtnCloseWindow_Click" Content="×" HorizontalAlignment="Left" Margin="725,0,0,0" VerticalAlignment="Top" Width="57" Height="26" BorderBrush="{x:Null}" FontSize="22" FontFamily="Tw Cen MT Condensed"/>
-        <Label Name="lb_RunStatus" HorizontalContentAlignment="Center" Content='' HorizontalAlignment="Left" Margin="17,302,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" FontSize="18" Width="453" FontFamily="{DynamicResource Font1}"/>
+        <ComboBox SelectionChanged="Cmb_pack_SelectedIndexChanged" Name="cmb_pack" HorizontalAlignment="Left" Margin="20,150,0,0" VerticalAlignment="Top" Width="454" FontSize="16" />
+        <Label Content='Press "Play":' HorizontalAlignment="Left" Margin="19,254,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" FontSize="22" Width="453" FontFamily="{DynamicResource Font1}"/>
+        <GroupBox Header="Information about the pack" HorizontalAlignment="Left" Height="559" Margin="490,31,0,0" VerticalAlignment="Top" Width="310" BorderBrush="{x:Null}" Foreground="{DynamicResource TextColor}" Background="#BF000000"/>
+        <GroupBox Header="Advanced options" HorizontalAlignment="Left" Height="133" Margin="10,451,0,0" VerticalAlignment="Top" Width="475" Background="{DynamicResource Overlay}" BorderBrush="{x:Null}" Foreground="{DynamicResource TextGray}"/>
+        <Label Content="Installation folder:" HorizontalAlignment="Left" Margin="19,471,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextGray}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
+        <TextBox Name="in_mainFolder" IsReadOnly="True" HorizontalAlignment="Left" Height="23" Margin="95,502,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="299" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextGray}"/>
+        <Button Click="Btn_openBaseFolder_Click" Style="{StaticResource DRRPButton}" Content="Open" HorizontalAlignment="Left" Margin="19,501,0,0" VerticalAlignment="Top" Width="71" Height="23" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextGray}"/>
+        <Button Click="Btn_changeMainFolder_Click" Style="{StaticResource DRRPButton}" Content="Change" HorizontalAlignment="Left" Margin="399,501,0,0" VerticalAlignment="Top" Width="75" Height="23" Foreground="{DynamicResource TextGray}" Background="{DynamicResource Overlay}"/>
+        <Label Content="Additional command line args:" HorizontalAlignment="Left" Margin="19,523,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextGray}" FontFamily="{DynamicResource Font1}" FontSize="16"/>
+        <TextBox Name="in_args" HorizontalAlignment="Left" Height="23" Margin="20,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="454" Background="{DynamicResource Overlay}" Foreground="{DynamicResource TextGray}"/>
+        <TextBox Name="lb_notes" BorderThickness="0" Focusable="False" IsReadOnly="True" HorizontalAlignment="Left" Height="415" Margin="498,53,0,0" TextWrapping="Wrap" Text="..." VerticalAlignment="Top" Width="292" Foreground="{DynamicResource TextColor}" BorderBrush="#00000000" Background="Transparent" FontFamily="{DynamicResource Font1}" FontSize="18" FontStretch="Expanded"/>
+        <Label MouseDown="Button_MouseDown" Cursor="ScrollAll" Padding="12 5 0 0" Content="DRRP Launcher v3.0.0" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="800" Background="#7F000000" Height="27" BorderBrush="Black" BorderThickness="0,0,0,2"/>
+        <Button Name="btn_close" Style="{StaticResource DRRPPanelButton}" Click="BtnCloseWindow_Click" Content="×" HorizontalAlignment="Left" Margin="743,0,0,0" VerticalAlignment="Top" Width="57" Height="26" BorderBrush="{x:Null}" FontSize="22" FontFamily="Tw Cen MT Condensed"/>
+        <Label Name="lb_RunStatus" HorizontalContentAlignment="Center" Content='' HorizontalAlignment="Left" Margin="18,397,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" FontSize="18" Width="453" FontFamily="{DynamicResource Font1}"/>
+        <Label Content="Select quality preset:" HorizontalAlignment="Left" Margin="18,178,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="454" FontSize="22" FontFamily="{DynamicResource Font1}"/>
+        <ComboBox SelectionChanged="Cmb_pack_SelectedIndexChanged" x:Name="cmb_performance" HorizontalAlignment="Left" Margin="20,210,0,0" VerticalAlignment="Top" Width="454" FontSize="16" />
 
     </Grid>
 </Window>

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DRRP_Launcher
-{
+namespace DRRP_Launcher {
     public class DrrpVersion {
         public string name;
         public string url;
