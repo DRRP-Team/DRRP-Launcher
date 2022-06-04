@@ -75,7 +75,8 @@ namespace DRRP_Launcher
         }
 
         private void fetchConfig() {
-            const string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json";
+            // const string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json";
+            const string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/feat/wpf/launcher_data.json";
 
             const string lastLoadedConfigFilename = "last_loaded_launcher_data.json";
 
@@ -86,6 +87,7 @@ namespace DRRP_Launcher
                 file.Write(JsonConvert.SerializeObject(launcherConfig));
                 file.Close();
             } catch (Exception e) {
+                Console.WriteLine($"Failed to fetch launcher data {e.Message}");
                 // Try to load previous config
                 if (File.Exists(lastLoadedConfigFilename)) {
                     StreamReader file = File.OpenText(lastLoadedConfigFilename);
