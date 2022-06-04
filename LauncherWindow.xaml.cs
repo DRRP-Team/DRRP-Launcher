@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace DRRP_Launcher
 {
@@ -64,10 +65,32 @@ namespace DRRP_Launcher
         }
 
         private void fetchConfig() {
-            string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json";
-            var data = Internet.GetJsonObject(url);
+            const string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/launcher_data.json";
+            JObject data;
+
+            const string lastLoadedConfigFilename = "last_loaded_launcher_data.json";
+
+            try {
+                data = Internet.GetJsonObject(url);
+
+                StreamWriter file = File.CreateText(lastLoadedConfigFilename);
+                file.Write(JsonConvert.SerializeObject(data));
+                file.Close();
+            } catch (Exception e) {
+                // Try to load previous config
+                if (File.Exists(lastLoadedConfigFilename)) {
+                    StreamReader file = File.OpenText(lastLoadedConfigFilename);
+                    data = JsonConvert.DeserializeObject<JObject>(file.ReadToEnd());
+                    file.Close();
+                } else {
+                    // If there's no config, notify that launcher requires internet connection
+                    MessageBox.Show("DRRP Launcher requires Internet connection, at least for the first run", "No Internet connection :(");
+                    Close();
+                    return;
+                }
+            }
             
-            if ((int)data["version"] != 1) {
+            if ((int)data["version"] > 1) {
                 MessageBox.Show("Update your launcher to continue.");
                 //MessageBox.Show("Информация по версиям пришла для более поздней версии лаунчера! Пожалуйста, обновите ваш лаунчер.");
                 return;
