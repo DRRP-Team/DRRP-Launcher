@@ -47,6 +47,7 @@ namespace DRRP_Launcher
             cmb_performance.Items.Add("Low");
             cmb_performance.Items.Add("Normal");
             cmb_performance.Items.Add("High");
+            cmb_performance.Items.Add("Ultra");
             cmb_performance.Items.Add("Custom (do not change config)");
 
             cmb_pack.SelectedIndex = cmb_pack.Items.IndexOf(config.config.selected_pack);
