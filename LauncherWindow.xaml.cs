@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Resources;
 using System.Reflection;
+using Infralution.Localization.Wpf;
+using System.Globalization;
 
 namespace DRRP_Launcher
 {
@@ -23,7 +25,6 @@ namespace DRRP_Launcher
         private Dictionary<string, Pack> packs = new Dictionary<string, Pack>();
         private Config config = new Config();
 
-        private ResourceManager resources = new ResourceManager("items", Assembly.GetExecutingAssembly());
         private JObject launcherConfig;
 
         public LauncherWindow() {
@@ -40,6 +41,7 @@ namespace DRRP_Launcher
 
         private void Window_BeforeLoad(object sender, EventArgs e) {
             config.load();
+            updateLocalization();
         }
 
         private void Window_Load(object sender, EventArgs e) {
@@ -55,6 +57,9 @@ namespace DRRP_Launcher
             cmb_performance.Items.Add(Properties.Resources.performance_high);
             cmb_performance.Items.Add(Properties.Resources.performance_ultra);
             cmb_performance.Items.Add(Properties.Resources.performance_custom);
+
+            cmb_language.Items.Add("English");
+            cmb_language.Items.Add("Русский");
 
             cmb_pack.SelectedIndex = cmb_pack.Items.IndexOf(config.config.selected_pack);
             cmb_language.SelectedIndex = cmb_language.Items.IndexOf(config.config.selected_language);
@@ -389,8 +394,17 @@ namespace DRRP_Launcher
         }
 
         private void Cmb_GZDoomLang_SelectedIndexChanged(object sender, EventArgs e) {
+            if (config.config.selected_language == cmb_language.SelectedItem.ToString()) return;
+
             config.config.selected_language = cmb_language.SelectedItem.ToString();
             config.save();
+            updateLocalization(true);
+        }
+
+        private void updateLocalization(bool restart=false) {
+            var langCode = config.config.selected_language == "Русский" ? "ru" : "en";
+            CultureManager.UICulture = new CultureInfo(langCode);
+            if (restart) Cmb_pack_SelectedIndexChanged(null, null);
         }
 
         private void Btn_changeMainFolder_Click(object sender, EventArgs e) {
