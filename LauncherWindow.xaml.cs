@@ -432,7 +432,16 @@ namespace DRRP_Launcher
         }
 
         private void Cmb_pack_SelectedIndexChanged(object sender, EventArgs e) {
-            Pack pack = packs[cmb_pack.SelectedItem.ToString()];
+            Pack pack;
+
+            if (cmb_pack.SelectedIndex != -1 && packs.ContainsKey(cmb_pack.SelectedItem.ToString())) {
+                pack = packs[cmb_pack.SelectedItem.ToString()];
+            } else {
+                var iterator = packs.Keys.GetEnumerator();
+                iterator.MoveNext();
+                pack = packs[iterator.Current];
+            }
+
             lb_notes.Text = config.config.selected_language == "Русский" ? pack.notes_ru : pack.notes_en; //.Split('\n');
             config.config.selected_pack = pack.name;
             config.save();

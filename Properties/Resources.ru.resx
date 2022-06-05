@@ -181,7 +181,7 @@
     <value>Подготовка к запуску...</value>
   </data>
   <data name="status_statistics" xml:space="preserve">
-    <value>Вы играли {0} часов, {1} минут и {2} секунд</value>
+    <value>Вы играли часов: {0}, минут: {1}, секунд: {2}</value>
   </data>
   <data name="ui_additionalArgs" xml:space="preserve">
     <value>Дополнительные аргументы запуска:</value>
