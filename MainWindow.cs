@@ -93,12 +93,12 @@ namespace DRRP_Launcher {
 
             var confpacks = (JArray)data["packs"];
 
-            foreach (var pack in confpacks)
-            {
+            foreach (var pack in confpacks) {
+                var notes = (JArray)pack["notes"];
                 cmb_pack.Items.Add(pack["name"].ToString());
                 packs.Add(
                     pack["name"].ToString(),
-                    new Pack(pack["name"].ToString(), pack["engine"].ToString(), pack["drrp"].ToString(), pack["notes"].ToString())
+                    new Pack(pack["name"].ToString(), pack["engine"].ToString(), pack["drrp"].ToString(), notes["English"].ToString(), notes["Русский"].ToString())
                 );
             }
         }
@@ -339,7 +339,7 @@ namespace DRRP_Launcher {
 
         private void Cmb_pack_SelectedIndexChanged(object sender, EventArgs e) {
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
-            lb_notes.Lines = pack.notes.Split('\n');
+            lb_notes.Lines = pack.notes_en.Split('\n');
             config.config.selected_pack = pack.name;
             config.save();
         }

@@ -9,6 +9,8 @@ using System.IO;
 using System.Net;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using System.Resources;
+using System.Reflection;
 
 namespace DRRP_Launcher
 {
@@ -21,6 +23,7 @@ namespace DRRP_Launcher
         private Dictionary<string, Pack> packs = new Dictionary<string, Pack>();
         private Config config = new Config();
 
+        private ResourceManager resources = new ResourceManager("items", Assembly.GetExecutingAssembly());
         private JObject launcherConfig;
 
         public LauncherWindow() {
@@ -35,20 +38,23 @@ namespace DRRP_Launcher
             DragMove();
         }
 
-        private void Window_Load(object sender, EventArgs e) {
+        private void Window_BeforeLoad(object sender, EventArgs e) {
             config.load();
+        }
+
+        private void Window_Load(object sender, EventArgs e) {
             initFolders();
             fetchConfig();
 
             in_mainFolder.Text = config.config.folder;
             in_args.Text = config.config.additional_args;
 
-            cmb_performance.Items.Add("Ugly");
-            cmb_performance.Items.Add("Low");
-            cmb_performance.Items.Add("Normal");
-            cmb_performance.Items.Add("High");
-            cmb_performance.Items.Add("Ultra");
-            cmb_performance.Items.Add("Custom (do not change config)");
+            cmb_performance.Items.Add(Properties.Resources.performance_ugly);
+            cmb_performance.Items.Add(Properties.Resources.performance_low);
+            cmb_performance.Items.Add(Properties.Resources.performance_normal);
+            cmb_performance.Items.Add(Properties.Resources.performance_high);
+            cmb_performance.Items.Add(Properties.Resources.performance_ultra);
+            cmb_performance.Items.Add(Properties.Resources.performance_custom);
 
             cmb_pack.SelectedIndex = cmb_pack.Items.IndexOf(config.config.selected_pack);
             cmb_language.SelectedIndex = cmb_language.Items.IndexOf(config.config.selected_language);
@@ -57,6 +63,7 @@ namespace DRRP_Launcher
             if (cmb_pack.SelectedIndex == -1) cmb_pack.SelectedIndex = 0;
             if (cmb_language.SelectedIndex == -1) cmb_language.SelectedIndex = 0;
         }
+
 
         private void Btn_DRRPUpdateVersions_Click(object sender, EventArgs e) {
             fetchConfig();
@@ -105,8 +112,7 @@ namespace DRRP_Launcher
             var data = launcherConfig;
             
             if ((int)data["version"] > 2) {
-                MessageBox.Show("Update your launcher to continue.");
-                //MessageBox.Show("Информация по версиям пришла для более поздней версии лаунчера! Пожалуйста, обновите ваш лаунчер.");
+                MessageBox.Show(Properties.Resources.error_upgradeRequired);
                 return;
             }
 
@@ -140,10 +146,11 @@ namespace DRRP_Launcher
             var confpacks = (JArray)data["packs"];
 
             foreach (var pack in confpacks) {
+                var notes = (JObject)pack["notes"];
                 cmb_pack.Items.Add(pack["name"].ToString());
                 packs.Add(
                     pack["name"].ToString(),
-                    new Pack(pack["name"].ToString(), pack["engine"].ToString(), pack["drrp"].ToString(), pack["notes"].ToString())
+                    new Pack(pack["name"].ToString(), pack["engine"].ToString(), pack["drrp"].ToString(), notes["English"].ToString(), notes["Русский"].ToString())
                 );
             }
         }
@@ -167,12 +174,12 @@ namespace DRRP_Launcher
         private async void Btn_run_Click(object sender, EventArgs e) {
             IsEnabled = false;
             //progressBar.Value = 0;
-            status("Preparing to launch...");
-            //status("Подготовка к запуску...");
+            status(Properties.Resources.status_preparingToLaunch);
 
             if (cmb_pack.SelectedIndex == -1 || cmb_language.SelectedIndex == -1) {
-                System.Windows.Forms.MessageBox.Show("Error! You have to select language and pack to continue.", "Startup error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                //MessageBox.Show("Ошибка! Выберите нужную версию и язык.", "Ошибка запуска", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(
+                    Properties.Resources.error_noLanguageOrPack,
+                    Properties.Resources.error_startupErrorTitle, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return;
             }
 
@@ -202,15 +209,13 @@ namespace DRRP_Launcher
             DirectoryInfo extractDir = new DirectoryInfo(System.IO.Path.Combine(config.config.folder, "Engines", version.foldername));
 
             if (extractDir.Exists) {
-                status($"{version.name} is already installed.");
-                //status($"{version.name} уже установлен.");
+                status(string.Format(Properties.Resources.status_alreadyInstalled, version.name));
                 return true;
             }
 
             //progressBar.Value = 0;
 
-            status($"Downloading {version.name}...");
-            //status($"Скачивание {version.name}...");
+            status(string.Format(Properties.Resources.status_downloading, version.name));
 
             DirectoryInfo downloadDir = new DirectoryInfo(System.IO.Path.Combine(config.config.folder, "Temp"));
 
@@ -222,8 +227,7 @@ namespace DRRP_Launcher
 
             //progressBar.Value = 50;
 
-            status($"Extracting {version.name}...");
-            //status($"Распаковка {version.name}...");
+            status(string.Format(Properties.Resources.status_extracting, version.name));
 
             extractDir.Create();
 
@@ -234,8 +238,7 @@ namespace DRRP_Launcher
             ClearDirectory(downloadDir);
 
             //progressBar.Value = 100;
-            status($"{version.name} installed successfully!");
-            //status($"{version.name} успешно установлен!");
+            status(string.Format(Properties.Resources.status_installed, version.name));
 
             return true;
         }
@@ -248,26 +251,23 @@ namespace DRRP_Launcher
         private async Task<bool> run_InstallDrrp() {
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
             DrrpVersion version = drrp_versions[pack.drrp];
-            FileInfo drrpfilepk3 = new FileInfo(System.IO.Path.Combine(config.config.folder, "DRRP", version.foldername + ".pk3"));
+            FileInfo drrpfilepk3 = new FileInfo(System.IO.Path.Combine(config.config.folder, "DRRP", version.foldername + ".pk3"));          
 
             if (drrpfilepk3.Exists && !version.forceDownload) {
-                status($"{version.name} is already installed.");
-                //status($"{version.name} уже установлен.");
+                status(string.Format(Properties.Resources.status_alreadyInstalled, version.name));
                 return true;
             }
 
             //progressBar.Value = 0;
 
-            status($"Downloading {version.name}...");
-            //status($"Скачивание {version.name}...");
+            status(string.Format(Properties.Resources.status_downloading, version.name));
 
             using (var client = new WebClient()) {
                 await client.DownloadFileTaskAsync(version.url, drrpfilepk3.FullName);
             }
 
             //progressBar.Value = 100;
-            status($"{version.name} installed successfully!");
-            //status($"{version.name} успешно установлен!");
+            status(string.Format(Properties.Resources.status_installed, version.name));
 
             return true;
         }
@@ -276,15 +276,14 @@ namespace DRRP_Launcher
             FileInfo doom2wad = new FileInfo(System.IO.Path.Combine(config.config.folder, "Global", "doom2.wad"));
 
             if (doom2wad.Exists) {
-                status("doom2.wad is already installed.");
-                //status("doom2.wad уже установлен.");
+                status(string.Format(Properties.Resources.status_alreadyInstalled, "doom2.wad"));
+
                 return true;
             }
 
             //progressBar.Value = 0;
 
-            status("Downloading doom2.wad...");
-            //status("Скачивание doom2.wad...");
+            status(string.Format(Properties.Resources.status_downloading, "doom2.wad"));
 
             string url = "https://github.com/Akbar30Bill/DOOM_wads/raw/master/doom2.wad";
 
@@ -293,8 +292,7 @@ namespace DRRP_Launcher
             }
 
             //progressBar.Value = 100;
-            status("doom2.wad is already installed!");
-            //status("doom2.wad успешно установлен!");
+            status(string.Format(Properties.Resources.status_installed, "doom2.wad"));
 
             return true;
         }
@@ -304,15 +302,14 @@ namespace DRRP_Launcher
             FileInfo gameconfig = new FileInfo(System.IO.Path.Combine(config.config.folder, "Global", "config.ini"));
 
             if (gameconfig.Exists) {
-                status("config.ini already exists.");
-                //status("doom2.wad уже установлен.");
+                status(string.Format(Properties.Resources.status_alreadyExists, "config.ini"));
+
                 return true;
             }
 
             //progressBar.Value = 0;
 
-            status("Downloading config.ini...");
-            //status("Скачивание doom2.wad...");
+            status(string.Format(Properties.Resources.status_downloading, "config.ini"));
 
             string url = "https://raw.githubusercontent.com/DRRP-Team/DRRP-Launcher/master/config_default.ini";
 
@@ -321,8 +318,7 @@ namespace DRRP_Launcher
             }
 
             //progressBar.Value = 100;
-            status("config.ini installed successfully!");
-            //status("doom2.wad успешно установлен!");
+            status(string.Format(Properties.Resources.status_installed, "config.ini"));
 
             return true;
         }
@@ -335,16 +331,17 @@ namespace DRRP_Launcher
             FileInfo engine = new FileInfo(System.IO.Path.Combine(config.config.folder, "Engines", engineVersion.foldername, $"{engineVersion.binaryname}.exe"));
 
             if (!engine.Exists) {
-                System.Windows.Forms.MessageBox.Show("Error! Engine binary was removed before running. Try again.", $"{engineVersion.binaryname}.exe not found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                //MessageBox.Show("Ошибка! Файл порта был удалён перед попыткой запуска. Попробуйте ещё раз.", "gzdoom.exe не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(
+                    Properties.Resources.error_binaryNotFound, string.Format(Properties.Resources.error_somethingNotFoundTitle, $"{engineVersion.binaryname}.exe"),
+                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error
+                );
                 return Task.FromResult(false);
             }
 
             FileInfo doom2wad = new FileInfo(System.IO.Path.Combine(config.config.folder, "Global", "doom2.wad"));
 
             if (!doom2wad.Exists) {
-                System.Windows.Forms.MessageBox.Show("Error! File doom2.wad was removed before running. Try again.", "doom2.wad not found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                //MessageBox.Show("Ошибка! Файл doom2.wad был удалён перед попыткой запуска. Попробуйте ещё раз.", "doom2.wad не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.error_doom2NotFound, string.Format(Properties.Resources.error_somethingNotFoundTitle, "doom2.wad"), System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error); ;
                 return Task.FromResult(false);
             }
 
@@ -352,13 +349,11 @@ namespace DRRP_Launcher
             FileInfo drrpfilepk3 = new FileInfo(System.IO.Path.Combine(config.config.folder, "DRRP", $"{drrpVersion.foldername}.pk3"));
 
             if (!drrpfilepk3.Exists) {
-                System.Windows.Forms.MessageBox.Show("Error! DRRP package was removed before running. Try again.", "pk3 file not found", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
-                //MessageBox.Show("Ошибка! Файл мода был удалён перед попыткой запуска. Попробуйте ещё раз.", "pk3 файл не найден", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                System.Windows.Forms.MessageBox.Show(Properties.Resources.error_pk3NotFound, Properties.Resources.error_pk3NotFoundTitle, System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
                 return Task.FromResult(false);
             }
 
-            status($"Starting {pack.name}...");
-            //status($"Запуск {engineVersion.name} с {drrpVersion.name}...");
+            status(string.Format(Properties.Resources.status_launching, pack.name));
 
             var performanceSettings = (JArray)launcherConfig["performances"];
             string performanceArgs = performanceSettings[cmb_performance.SelectedIndex].ToString();
@@ -381,7 +376,7 @@ namespace DRRP_Launcher
             DateTime endTime = DateTime.Now;
             TimeSpan duration = endTime - startTime;
 
-            status($"You've played for {duration.Hours} hours, {duration.Minutes} minutes, {duration.Seconds} seconds");
+            status(string.Format(Properties.Resources.status_statistics, duration.Hours, duration.Minutes, duration.Seconds));
             WindowState = WindowState.Normal;
             Activate();
 
@@ -413,7 +408,7 @@ namespace DRRP_Launcher
 
         private void Cmb_pack_SelectedIndexChanged(object sender, EventArgs e) {
             Pack pack = packs[cmb_pack.SelectedItem.ToString()];
-            lb_notes.Text = pack.notes; //.Split('\n');
+            lb_notes.Text = config.config.selected_language == "Русский" ? pack.notes_ru : pack.notes_en; //.Split('\n');
             config.config.selected_pack = pack.name;
             config.save();
         }

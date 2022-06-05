@@ -121,4 +121,139 @@
   <data name="DRRP_REAC_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DRRP_REAC_.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="error_binaryNotFound" xml:space="preserve">
+    <value>Error! Engine binary was removed before running. Try again.</value>
+    <comment>Ошибка! Файл порта был удалён перед попыткой запуска. Попробуйте ещё раз.</comment>
+  </data>
+  <data name="error_doom2NotFound" xml:space="preserve">
+    <value>Error! File doom2.wad was removed before running. Try again.</value>
+    <comment>Ошибка! Файл doom2.wad был удалён перед попыткой запуска. Попробуйте ещё раз.</comment>
+  </data>
+  <data name="error_noInternetFirstTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="error_noLanguageOrPack" xml:space="preserve">
+    <value>Error! You have to select language and pack to continue.</value>
+    <comment>Ошибка! Выберите нужную версию и язык.</comment>
+  </data>
+  <data name="error_pk3NotFound" xml:space="preserve">
+    <value>Error! DRRP package was removed before running. Try again.</value>
+    <comment>Ошибка! Файл мода был удалён перед попыткой запуска. Попробуйте ещё раз.</comment>
+  </data>
+  <data name="error_pk3NotFoundTitle" xml:space="preserve">
+    <value>pk3 file not found</value>
+    <comment>pk3 файл не найден</comment>
+  </data>
+  <data name="error_somethingNotFoundTitle" xml:space="preserve">
+    <value>{0} not found</value>
+    <comment>{0} не найден</comment>
+  </data>
+  <data name="error_startupErrorTitle" xml:space="preserve">
+    <value>Startup error</value>
+    <comment>Ошибка запуска</comment>
+  </data>
+  <data name="error_upgradeRequired" xml:space="preserve">
+    <value>Update your launcher to continue.</value>
+    <comment>Необходимо обновить лаунчер.</comment>
+  </data>
+  <data name="performance_custom" xml:space="preserve">
+    <value>Custom (do not change config)</value>
+    <comment>Настроенное (не вносит правки)</comment>
+  </data>
+  <data name="performance_high" xml:space="preserve">
+    <value>High</value>
+    <comment>Высокое</comment>
+  </data>
+  <data name="performance_low" xml:space="preserve">
+    <value>Low</value>
+    <comment>Низкое</comment>
+  </data>
+  <data name="performance_normal" xml:space="preserve">
+    <value>Normal</value>
+    <comment>Нормальное</comment>
+  </data>
+  <data name="performance_ugly" xml:space="preserve">
+    <value>Ugly</value>
+    <comment>Убогое</comment>
+  </data>
+  <data name="performance_ultra" xml:space="preserve">
+    <value>Ultra</value>
+    <comment>Ультра</comment>
+  </data>
+  <data name="status_alreadyExists" xml:space="preserve">
+    <value>{0} already exists.</value>
+    <comment>{0} уже существует.</comment>
+  </data>
+  <data name="status_alreadyInstalled" xml:space="preserve">
+    <value>{0} is already installed.</value>
+    <comment>{0} уже установлен.</comment>
+  </data>
+  <data name="status_downloading" xml:space="preserve">
+    <value>Downloading {0}...</value>
+    <comment>Скачиваю {0}...</comment>
+  </data>
+  <data name="status_extracting" xml:space="preserve">
+    <value>Extracting {0}...</value>
+    <comment>Распаковываю {0}...</comment>
+  </data>
+  <data name="status_installed" xml:space="preserve">
+    <value>{0} installed successfully!</value>
+    <comment>{0} успешно установлен!</comment>
+  </data>
+  <data name="status_launching" xml:space="preserve">
+    <value>Starting {0}...</value>
+    <comment>Запускаю {0}...</comment>
+  </data>
+  <data name="status_preparingToLaunch" xml:space="preserve">
+    <value>Preparing to launch...</value>
+    <comment>Подготовка к запуску...</comment>
+  </data>
+  <data name="status_statistics" xml:space="preserve">
+    <value>You've played for {0} hours, {1} minutes, {2} seconds</value>
+    <comment>Вы играли {0} часов, {1} минут и {2} секунд</comment>
+  </data>
+  <data name="ui_additionalArgs" xml:space="preserve">
+    <value>Additional command line args:</value>
+    <comment>Дополнительные аргументы запуска:</comment>
+  </data>
+  <data name="ui_advanced" xml:space="preserve">
+    <value>Advanced options</value>
+    <comment>Продвинутые опции</comment>
+  </data>
+  <data name="ui_change" xml:space="preserve">
+    <value>Change</value>
+    <comment>Изменить</comment>
+  </data>
+  <data name="ui_installationFolder" xml:space="preserve">
+    <value>Installation folder:</value>
+    <comment>Рабочая папка:</comment>
+  </data>
+  <data name="ui_open" xml:space="preserve">
+    <value>Open</value>
+    <comment>Открыть</comment>
+  </data>
+  <data name="ui_packInfo" xml:space="preserve">
+    <value>Information about the pack</value>
+    <comment>Подробнее о пакете</comment>
+  </data>
+  <data name="ui_pressPlay" xml:space="preserve">
+    <value>Press "Play":</value>
+    <comment>Нажми "Play":</comment>
+  </data>
+  <data name="ui_selectLanguage" xml:space="preserve">
+    <value>Select language:</value>
+    <comment>Выбери язык:</comment>
+  </data>
+  <data name="ui_selectPack" xml:space="preserve">
+    <value>Select pack:</value>
+    <comment>Выбери пакет:</comment>
+  </data>
+  <data name="ui_selectPackAndPressPlay" xml:space="preserve">
+    <value>Select pack and press "Play"</value>
+    <comment>Выбери пакет и нажми "Play"</comment>
+  </data>
+  <data name="ui_selectQuality" xml:space="preserve">
+    <value>Select quality:</value>
+    <comment>Выбери качество:</comment>
+  </data>
 </root>

@@ -34,15 +34,17 @@ namespace DRRP_Launcher {
 
     public class Pack {
         public string name;
-        public string notes;
+        public string notes_en;
+        public string notes_ru;
         public string engine;
         public string drrp;
         
-        public Pack(string _name, string _engine, string _drrp, string _notes) {
+        public Pack(string _name, string _engine, string _drrp, string _notes_en, string _notes_ru) {
             name = _name;
             engine = _engine;
             drrp = _drrp;
-            notes = _notes;
+            notes_en = _notes_en;
+            notes_ru = _notes_ru;
         }
     }
 }

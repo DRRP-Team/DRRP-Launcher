@@ -22,7 +22,7 @@ namespace DRRP_Launcher.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DRRP_Launcher.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DRRP_Launcher.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace DRRP_Launcher.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,10 +63,316 @@ namespace DRRP_Launcher.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap DRRP_REAC_ {
+        public static System.Drawing.Bitmap DRRP_REAC_ {
             get {
                 object obj = ResourceManager.GetObject("DRRP_REAC_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error! Engine binary was removed before running. Try again..
+        /// </summary>
+        public static string error_binaryNotFound {
+            get {
+                return ResourceManager.GetString("error_binaryNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error! File doom2.wad was removed before running. Try again..
+        /// </summary>
+        public static string error_doom2NotFound {
+            get {
+                return ResourceManager.GetString("error_doom2NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string error_noInternetFirstTitle {
+            get {
+                return ResourceManager.GetString("error_noInternetFirstTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error! You have to select language and pack to continue..
+        /// </summary>
+        public static string error_noLanguageOrPack {
+            get {
+                return ResourceManager.GetString("error_noLanguageOrPack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error! DRRP package was removed before running. Try again..
+        /// </summary>
+        public static string error_pk3NotFound {
+            get {
+                return ResourceManager.GetString("error_pk3NotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to pk3 file not found.
+        /// </summary>
+        public static string error_pk3NotFoundTitle {
+            get {
+                return ResourceManager.GetString("error_pk3NotFoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} not found.
+        /// </summary>
+        public static string error_somethingNotFoundTitle {
+            get {
+                return ResourceManager.GetString("error_somethingNotFoundTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Startup error.
+        /// </summary>
+        public static string error_startupErrorTitle {
+            get {
+                return ResourceManager.GetString("error_startupErrorTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update your launcher to continue..
+        /// </summary>
+        public static string error_upgradeRequired {
+            get {
+                return ResourceManager.GetString("error_upgradeRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom (do not change config).
+        /// </summary>
+        public static string performance_custom {
+            get {
+                return ResourceManager.GetString("performance_custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
+        public static string performance_high {
+            get {
+                return ResourceManager.GetString("performance_high", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low.
+        /// </summary>
+        public static string performance_low {
+            get {
+                return ResourceManager.GetString("performance_low", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Normal.
+        /// </summary>
+        public static string performance_normal {
+            get {
+                return ResourceManager.GetString("performance_normal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ugly.
+        /// </summary>
+        public static string performance_ugly {
+            get {
+                return ResourceManager.GetString("performance_ugly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ultra.
+        /// </summary>
+        public static string performance_ultra {
+            get {
+                return ResourceManager.GetString("performance_ultra", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} already exists..
+        /// </summary>
+        public static string status_alreadyExists {
+            get {
+                return ResourceManager.GetString("status_alreadyExists", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is already installed..
+        /// </summary>
+        public static string status_alreadyInstalled {
+            get {
+                return ResourceManager.GetString("status_alreadyInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloading {0}....
+        /// </summary>
+        public static string status_downloading {
+            get {
+                return ResourceManager.GetString("status_downloading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Extracting {0}....
+        /// </summary>
+        public static string status_extracting {
+            get {
+                return ResourceManager.GetString("status_extracting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} installed successfully!.
+        /// </summary>
+        public static string status_installed {
+            get {
+                return ResourceManager.GetString("status_installed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Starting {0}....
+        /// </summary>
+        public static string status_launching {
+            get {
+                return ResourceManager.GetString("status_launching", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Preparing to launch....
+        /// </summary>
+        public static string status_preparingToLaunch {
+            get {
+                return ResourceManager.GetString("status_preparingToLaunch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You&apos;ve played for {0} hours, {1} minutes, {2} seconds.
+        /// </summary>
+        public static string status_statistics {
+            get {
+                return ResourceManager.GetString("status_statistics", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional command line args:.
+        /// </summary>
+        public static string ui_additionalArgs {
+            get {
+                return ResourceManager.GetString("ui_additionalArgs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Advanced options.
+        /// </summary>
+        public static string ui_advanced {
+            get {
+                return ResourceManager.GetString("ui_advanced", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change.
+        /// </summary>
+        public static string ui_change {
+            get {
+                return ResourceManager.GetString("ui_change", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installation folder:.
+        /// </summary>
+        public static string ui_installationFolder {
+            get {
+                return ResourceManager.GetString("ui_installationFolder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open.
+        /// </summary>
+        public static string ui_open {
+            get {
+                return ResourceManager.GetString("ui_open", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Information about the pack.
+        /// </summary>
+        public static string ui_packInfo {
+            get {
+                return ResourceManager.GetString("ui_packInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Press &quot;Play&quot;:.
+        /// </summary>
+        public static string ui_pressPlay {
+            get {
+                return ResourceManager.GetString("ui_pressPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select language:.
+        /// </summary>
+        public static string ui_selectLanguage {
+            get {
+                return ResourceManager.GetString("ui_selectLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select pack:.
+        /// </summary>
+        public static string ui_selectPack {
+            get {
+                return ResourceManager.GetString("ui_selectPack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select pack and press &quot;Play&quot;.
+        /// </summary>
+        public static string ui_selectPackAndPressPlay {
+            get {
+                return ResourceManager.GetString("ui_selectPackAndPressPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select quality:.
+        /// </summary>
+        public static string ui_selectQuality {
+            get {
+                return ResourceManager.GetString("ui_selectQuality", resourceCulture);
             }
         }
     }
