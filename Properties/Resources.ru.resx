@@ -166,7 +166,7 @@
     <value>{0} уже установлен.</value>
   </data>
   <data name="status_downloading" xml:space="preserve">
-    <value>Скачиваю {0}...</value>
+    <value>Качаю {0}...</value>
   </data>
   <data name="status_extracting" xml:space="preserve">
     <value>Распаковываю {0}...</value>
