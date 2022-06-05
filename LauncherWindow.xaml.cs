@@ -401,10 +401,21 @@ namespace DRRP_Launcher
             updateLocalization(true);
         }
 
-        private void updateLocalization(bool restart=false) {
+        private void updateLocalization(bool repaint=false) {
             var langCode = config.config.selected_language == "Русский" ? "ru" : "en";
             CultureManager.UICulture = new CultureInfo(langCode);
-            if (restart) Cmb_pack_SelectedIndexChanged(null, null);
+            if (repaint) {
+                Cmb_pack_SelectedIndexChanged(null, null);
+
+                cmb_performance.Items.Clear();
+                cmb_performance.Items.Add(Properties.Resources.performance_ugly);
+                cmb_performance.Items.Add(Properties.Resources.performance_low);
+                cmb_performance.Items.Add(Properties.Resources.performance_normal);
+                cmb_performance.Items.Add(Properties.Resources.performance_high);
+                cmb_performance.Items.Add(Properties.Resources.performance_ultra);
+                cmb_performance.Items.Add(Properties.Resources.performance_custom);
+                cmb_performance.SelectedIndex = config.config.selected_performance;
+            }
         }
 
         private void Btn_changeMainFolder_Click(object sender, EventArgs e) {
