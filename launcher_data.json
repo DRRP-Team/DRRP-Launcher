@@ -108,6 +108,15 @@
         "English": "Download unstable DRRP build from the master branch and play with LZDoom",
         "Русский": "Скачать нестабильный билд DRRP с ветки master и запустить в LZDoom"
       }
+    },
+    {
+      "name": "Russian Localization Fix (Development build) & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
+      "drrp": "DRRP Dev Localize",
+      "notes": {
+        "English": "Download development DRRP build from the amonlocalize branch and play with GZDoom",
+        "Русский": "Скачать development-билд DRRP с ветки amonlokalize и запустить в GZDoom"
+      }
     }
   ],
   "engines": [
@@ -198,9 +207,9 @@
       "force_download": true
     },
     {
-      "name": "DRRP Dev Rebalance",
-      "url": "https://github.com/DRRP-Team/DRRP/archive/refs/heads/rebalance.zip",
-      "foldername": "DRRP_Dev_Rebalance",
+      "name": "DRRP Dev Localize",
+      "url": "https://github.com/DRRP-Team/DRRP/archive/refs/heads/amonlocalize.zip",
+      "foldername": "DRRP_Dev_Lokalize",
       "force_download": true
     }
   ],
