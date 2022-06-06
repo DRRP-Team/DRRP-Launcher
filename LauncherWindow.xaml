@@ -243,7 +243,7 @@
         <Button Name="btn_close" Style="{StaticResource DRRPPanelButton}" Click="BtnCloseWindow_Click" Content="×" HorizontalAlignment="Left" Margin="743,0,0,0" VerticalAlignment="Top" Width="57" Height="26" BorderBrush="{x:Null}" FontSize="22" FontFamily="Tw Cen MT Condensed"/>
         <Label Name="lb_RunStatus" HorizontalContentAlignment="Center" Content='' HorizontalAlignment="Left" Margin="18,397,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" FontSize="18" Width="453" FontFamily="{DynamicResource Font1}"/>
         <Label Content="{Resx Key=ui_selectQuality}" HorizontalAlignment="Left" Margin="18,178,0,0" VerticalAlignment="Top" Foreground="{DynamicResource TextColor}" Width="454" FontSize="22" FontFamily="{DynamicResource Font1}"/>
-        <ComboBox SelectionChanged="Cmb_pack_SelectedIndexChanged" x:Name="cmb_performance" HorizontalAlignment="Left" Margin="20,210,0,0" VerticalAlignment="Top" Width="454" FontSize="16" />
+        <ComboBox SelectionChanged="Cmb_performance_SelectionChanged" x:Name="cmb_performance" HorizontalAlignment="Left" Margin="20,210,0,0" VerticalAlignment="Top" Width="454" FontSize="16" />
 
     </Grid>
 </Window>

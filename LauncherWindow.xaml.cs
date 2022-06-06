@@ -51,12 +51,7 @@ namespace DRRP_Launcher
             in_mainFolder.Text = config.config.folder;
             in_args.Text = config.config.additional_args;
 
-            cmb_performance.Items.Add(Properties.Resources.performance_ugly);
-            cmb_performance.Items.Add(Properties.Resources.performance_low);
-            cmb_performance.Items.Add(Properties.Resources.performance_normal);
-            cmb_performance.Items.Add(Properties.Resources.performance_high);
-            cmb_performance.Items.Add(Properties.Resources.performance_ultra);
-            cmb_performance.Items.Add(Properties.Resources.performance_custom);
+            updateLocalization(true);
 
             cmb_language.Items.Add("English");
             cmb_language.Items.Add("Русский");
@@ -65,8 +60,18 @@ namespace DRRP_Launcher
             cmb_language.SelectedIndex = cmb_language.Items.IndexOf(config.config.selected_language);
             cmb_performance.SelectedIndex = config.config.selected_performance;
 
-            if (cmb_pack.SelectedIndex == -1) cmb_pack.SelectedIndex = 0;
-            if (cmb_language.SelectedIndex == -1) cmb_language.SelectedIndex = 0;
+            if (cmb_pack.SelectedIndex == -1) {
+                cmb_pack.SelectedIndex = 0;
+                Cmb_pack_SelectedIndexChanged();
+            }
+            if (cmb_language.SelectedIndex == -1) {
+                cmb_language.SelectedIndex = 0;
+                Cmb_GZDoomLang_SelectedIndexChanged();
+            }
+            if (cmb_performance.SelectedIndex == -1) {
+                cmb_performance.SelectedIndex = 4;
+                Cmb_performance_SelectionChanged();
+            }
         }
 
 
@@ -393,7 +398,7 @@ namespace DRRP_Launcher
             lb_RunStatus.UpdateLayout();    
         }
 
-        private void Cmb_GZDoomLang_SelectedIndexChanged(object sender, EventArgs e) {
+        private void Cmb_GZDoomLang_SelectedIndexChanged(object sender=null, EventArgs e=null) {
             if (config.config.selected_language == cmb_language.SelectedItem.ToString()) return;
 
             config.config.selected_language = cmb_language.SelectedItem.ToString();
@@ -404,8 +409,9 @@ namespace DRRP_Launcher
         private void updateLocalization(bool repaint=false) {
             var langCode = config.config.selected_language == "Русский" ? "ru" : "en";
             CultureManager.UICulture = new CultureInfo(langCode);
+
             if (repaint) {
-                Cmb_pack_SelectedIndexChanged(null, null);
+                Cmb_pack_SelectedIndexChanged(); // Redraw pack description
 
                 cmb_performance.Items.Clear();
                 cmb_performance.Items.Add(Properties.Resources.performance_ugly);
@@ -431,7 +437,7 @@ namespace DRRP_Launcher
             }
         }
 
-        private void Cmb_pack_SelectedIndexChanged(object sender, EventArgs e) {
+        private void Cmb_pack_SelectedIndexChanged(object sender=null, EventArgs e=null) {
             Pack pack;
 
             if (cmb_pack.SelectedIndex != -1 && packs.ContainsKey(cmb_pack.SelectedItem.ToString())) {
@@ -444,6 +450,15 @@ namespace DRRP_Launcher
 
             lb_notes.Text = config.config.selected_language == "Русский" ? pack.notes_ru : pack.notes_en; //.Split('\n');
             config.config.selected_pack = pack.name;
+            config.save();
+        }
+
+        private void Cmb_performance_SelectionChanged(object sender=null, EventArgs e=null) {
+            var index = cmb_performance.SelectedIndex;
+
+            if (index == -1) return;
+
+            config.config.selected_performance = index;
             config.save();
         }
     }
