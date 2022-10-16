@@ -2,6 +2,24 @@
   "version": 1,
   "packs": [
     {
+      "name": "DRRP v0.6.0pre & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
+      "drrp": "DRRP v0.6.0pre",
+      "notes": {
+        "English": "This is a pre-release of DRRP v0.6.0 for GZDoom.\nUse this version or wait for the release date.\nChangelog will be added to the release of v0.6.0.",
+        "Русский": "Это пре-релиз DRRP v0.6.0 для GZDoom.\nИспользуйте эту версию или дождитесь даты релиза.\nИстория изменений будет добавлена в релизе v0.6.0."
+      }
+    },
+    {
+      "name": "DRRP v0.6.0pre & LZDoom v3.88a",
+      "engine": "LZDoom v3.88a",
+      "drrp": "DRRP v0.6.0pre",
+      "notes": {
+        "English": "This is a pre-release of DRRP v0.6.0 for LZDoom.\nUse this version or wait for the release date.\nChangelog will be added to the release of v0.6.0.",
+        "Русский": "Это пре-релиз DRRP v0.6.0 для LZDoom.\nИспользуйте эту версию или дождитесь даты релиза.\nИстория изменений будет добавлена в релизе v0.6.0."
+      }
+    },
+    {
       "name": "DRRP v0.5.0 & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP v0.5.0",
@@ -146,6 +164,12 @@
     }
   ],
   "drrp_versions": [
+    {
+      "name": "DRRP v0.6.0pre",
+      "url": "https://github.com/DRRP-Team/DRRP/archive/refs/tags/v0.6.0pre.zip",
+      "foldername": "DRRPv0.6.0pre",
+      "force_download":  false
+    },
     {
       "name": "DRRP v0.5.0",
       "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.5.0/DRRPv0.5.0.pk3",
