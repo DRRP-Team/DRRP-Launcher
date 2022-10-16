@@ -2,6 +2,18 @@
   "version": 1,
   "packs": [
     {
+      "name": "DRRP v0.6.0pre & GZDoom v4.7.1",
+      "engine": "GZDoom 4.7.1",
+      "drrp": "DRRP v0.6.0pre",
+      "notes": "This is a pre-release of DRRP v0.6.0 for GZDoom. Please, update your launcher!"
+    },
+    {
+      "name": "DRRP v0.6.0pre & LZDoom v3.88a",
+      "engine": "LZDoom v3.88a",
+      "drrp": "DRRP v0.6.0pre",
+      "notes": "This is a pre-release of DRRP v0.6.0 for LZDoom. Please, update your launcher!"
+    },
+    {
       "name": "DRRP v0.5.0 & GZDoom v4.7.1",
       "engine": "GZDoom 4.7.1",
       "drrp": "DRRP v0.5.0",
@@ -107,6 +119,12 @@
     }
   ],
   "drrp_versions": [
+    {
+      "name": "DRRP v0.6.0pre",
+      "url": "https://github.com/DRRP-Team/DRRP/archive/refs/tags/v0.6.0pre.zip",
+      "foldername": "DRRPv0.6.0pre",
+      "force_download":  false
+    },
     {
       "name": "DRRP v0.5.0",
       "url": "https://github.com/DRRP-Team/DRRP/releases/download/v0.5.0/DRRPv0.5.0.pk3",
